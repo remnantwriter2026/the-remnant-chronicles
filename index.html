@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Remnant Chronicles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Serif', serif; background-color: #221015; color: #f8f6f6; }
+        .card { background-color: #3d1112; border: 1px solid #d41142; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: #f8f6f6; }
+        .btn { background-color: #d41142; color: white; display: inline-block; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .btn:hover { background-color: #f8f6f6; color: #d41142; }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <nav class="fixed w-full z-50 px-6 py-4 bg-black/80 backdrop-blur-lg border-b border-red-900/30">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center">
+                <img src="logo.png" alt="RC Seal" class="w-24 h-24 md:w-44 md:h-44 object-contain">
+            </div>
+            <div class="flex gap-8 text-sm font-bold tracking-widest uppercase items-center">
+                <a href="index.html" class="whitespace-nowrap hover:text-red-400 transition shadow-sm">The Writings</a>
+                <a href="services.html" class="hover:text-red-400 transition shadow-sm">Services</a>
+                <a href="mailto:remnantchronicles.writer@gmail.com" class="hover:text-red-400 transition shadow-sm">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto text-center pt-[450px] md:pt-[350px] pb-12 px-6">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">The Remnant Chronicles</h1>
+        <p class="text-xl text-slate-300 italic mb-16 px-4">Strategic writing infused with doctrinal analysis and scriptural precision.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <div class="card p-8 rounded-xl flex flex-col h-full">
+                <h3 class="text-2xl font-bold text-red-100 mb-4">The Covenantal Contrast</h3>
+                <p class="text-red-200/80 mb-8 flex-grow text-sm">A doctrinal audit distinguishing an internal, Holy Spirit-led relationship from external ritual.</p>
+                <a href="contrast.pdf" target="_blank" class="btn text-center">View Full Chronicle (PDF)</a>
+            </div>
+
+            <div class="card p-8 rounded-xl flex flex-col h-full">
+                <h3 class="text-2xl font-bold text-red-100 mb-4">Hidden in Christ</h3>
+                <p class="text-red-200/80 mb-8 flex-grow text-sm">Exploring the biblical concept of spiritual identity and security in Christ.</p>
+                <a href="hidden.pdf" target="_blank" class="btn text-center">View Full Chronicle (PDF)</a>
+            </div>
+
+            <div class="card p-8 rounded-xl flex flex-col h-full">
+                <h3 class="text-2xl font-bold text-red-100 mb-4">Community Restoration</h3>
+                <p class="text-red-200/80 mb-8 flex-grow text-sm">Restoration as an ethical and generational work rather than a solely political one.</p>
+                <a href="community.pdf" target="_blank" class="btn text-center">View Full Chronicle (PDF)</a>
+            </div>
+
+            <div class="card p-8 rounded-xl flex flex-col h-full">
+                <h3 class="text-2xl font-bold text-red-100 mb-4">Spiritual Authority</h3>
+                <p class="text-red-200/80 mb-8 flex-grow text-sm">A challenge to modern substitutes for genuine, Holy Spirit-led leadership.</p>
+                <a href="authority.pdf" target="_blank" class="btn text-center">View Full Chronicle (PDF)</a>
+            </div>
+
+            <div class="card p-8 rounded-xl flex flex-col h-full">
+                <h3 class="text-2xl font-bold text-red-100 mb-4">The Gift of Salvation</h3>
+                <p class="text-red-200/80 mb-8 flex-grow text-sm">Defining salvation as an active, total transfiguration of the body, mind, and spirit.</p>
+                <a href="salvation.pdf" target="_blank" class="btn text-center">View Full Chronicle (PDF)</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
