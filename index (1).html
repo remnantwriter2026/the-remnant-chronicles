@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Remnant Chronicles | Jimey Grant</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0f2219;
+    --green-dark: #152e21;
+    --green-mid: #1a3a2a;
+    --green-rich: #1e4432;
+    --green-accent: #2a5c40;
+    --gold: #C9941A;
+    --gold-light: #e0ac3a;
+    --cream: #f0ead8;
+    --cream-muted: #c8bfa8;
+    --text-body: #d8cdb8;
+    --text-muted: #8aaa90;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--green-deep);
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.85;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--green-deep);
+    border-bottom: 1px solid var(--gold);
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-seal {
+    width: 36px; height: 36px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600;
+    color: var(--green-deep); letter-spacing: 1px;
+  }
+  .nav-title { font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-family: 'Cinzel', serif; font-size: 11px; color: var(--text-muted);
+    text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a.active { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    background: var(--green-rich);
+    border-bottom: 3px solid var(--gold);
+    padding: 6rem 2.5rem 5rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: var(--green-accent); opacity: .25;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -80px; left: -60px;
+    width: 280px; height: 280px; border-radius: 50%;
+    background: var(--green-accent); opacity: .2;
+  }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1.5rem; position: relative;
+  }
+  .hero-eyebrow span { display: inline-block; border: 1px solid var(--gold); padding: 4px 20px; }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(42px, 7vw, 80px); font-weight: 700;
+    color: #ffffff; line-height: 1.05;
+    margin-bottom: 1rem; position: relative;
+    letter-spacing: -1px;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(16px, 2.5vw, 22px); font-style: italic;
+    color: var(--cream-muted); max-width: 540px;
+    margin: 0 auto 2.5rem; position: relative; line-height: 1.6;
+  }
+  .hero-divider { width: 80px; height: 3px; background: var(--gold); margin: 0 auto 2.5rem; position: relative; }
+  .hero-actions { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; position: relative; }
+  .btn-primary {
+    display: inline-block; background: var(--gold); color: var(--green-deep);
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 14px 32px; text-decoration: none;
+    font-weight: 600; transition: background .2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-secondary {
+    display: inline-block; border: 1px solid var(--gold); color: var(--gold);
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 13px 32px; text-decoration: none;
+    transition: all .2s;
+  }
+  .btn-secondary:hover { background: var(--gold); color: var(--green-deep); }
+
+  /* MARQUEE STRIP */
+  .marquee-strip {
+    background: var(--gold); padding: 10px 0; overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+  }
+  .marquee-inner span {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--green-deep);
+    padding: 0 2rem;
+  }
+  .marquee-inner span::after {
+    content: '·'; margin-left: 2rem; opacity: .5;
+  }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ABOUT STRIP */
+  .about-strip {
+    background: var(--green-mid);
+    border-bottom: 1px solid var(--green-accent);
+    padding: 4rem 2.5rem;
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 3rem; max-width: 1000px; margin: 0 auto;
+    align-items: center;
+  }
+  .about-left { text-align: center; }
+  .about-seal {
+    width: 100px; height: 100px; border-radius: 50%;
+    background: var(--gold); margin: 0 auto 1rem;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 28px; font-weight: 600;
+    color: var(--green-deep);
+  }
+  .about-name {
+    font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--cream);
+  }
+  .about-location {
+    font-size: 13px; color: var(--text-muted); margin-top: 4px;
+  }
+  .about-right {}
+  .about-label {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .about-right h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 28px; font-weight: 700; color: #ffffff; margin-bottom: 1rem;
+  }
+  .about-right p {
+    font-size: 17px; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.25rem;
+  }
+  .about-rule { width: 40px; height: 3px; background: var(--gold); margin-bottom: 1rem; }
+
+  /* CHRONICLES SECTION */
+  .chronicles-section {
+    max-width: 1000px; margin: 0 auto; padding: 4rem 2.5rem;
+  }
+  .section-header { margin-bottom: 2.5rem; }
+  .section-eyebrow {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .4rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 32px; font-weight: 700; color: #ffffff; margin-bottom: .4rem;
+  }
+  .section-rule { width: 40px; height: 3px; background: var(--gold); }
+
+  .chronicles-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .chronicle-card {
+    background: var(--green-mid); border: 0.5px solid var(--green-accent);
+    padding: 1.75rem; transition: border-color .2s, background .2s;
+    text-decoration: none; display: block;
+  }
+  .chronicle-card:hover { border-color: var(--gold); background: var(--green-rich); }
+  .chronicle-vol {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .4rem;
+  }
+  .chronicle-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px; font-weight: 700; color: #ffffff;
+    line-height: 1.3; margin-bottom: .5rem;
+  }
+  .chronicle-desc {
+    font-size: 14px; color: var(--text-muted); line-height: 1.65;
+    font-style: italic; margin-bottom: 1rem;
+  }
+  .chronicle-read {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .chronicle-read svg { width: 12px; height: 12px; stroke: var(--gold); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* FEATURED CHRONICLE */
+  .featured-band {
+    background: var(--green-rich); border-top: 1px solid var(--green-accent);
+    border-bottom: 1px solid var(--green-accent);
+  }
+  .featured-inner {
+    max-width: 1000px; margin: 0 auto; padding: 4rem 2.5rem;
+    display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: center;
+  }
+  .featured-label-col {}
+  .featured-badge {
+    display: inline-block; background: var(--gold); color: var(--green-deep);
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 5px 14px; margin-bottom: 1rem; font-weight: 600;
+  }
+  .featured-label-col h3 {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--text-muted); line-height: 1.6;
+  }
+  .featured-content h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 34px; font-weight: 700; color: #ffffff;
+    line-height: 1.2; margin-bottom: .75rem;
+  }
+  .featured-content p {
+    font-size: 17px; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem;
+  }
+  .featured-link {
+    display: inline-block; border: 1px solid var(--gold); color: var(--gold);
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 11px 26px; text-decoration: none; transition: all .2s;
+  }
+  .featured-link:hover { background: var(--gold); color: var(--green-deep); }
+
+  /* SERVICES BAND */
+  .services-band {
+    background: var(--green-deep); border-top: 3px solid var(--gold);
+    padding: 4rem 2.5rem; text-align: center;
+  }
+  .services-band h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 36px; font-weight: 700; color: #ffffff; margin-bottom: .5rem;
+  }
+  .services-band p {
+    font-size: 17px; color: var(--text-muted); font-style: italic;
+    margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto;
+  }
+  .services-mini-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem; max-width: 800px; margin: 0 auto 2.5rem;
+  }
+  .services-mini-card {
+    background: var(--green-mid); border: 0.5px solid var(--green-accent);
+    padding: 1.5rem; text-align: left;
+  }
+  .smc-title {
+    font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .4rem;
+  }
+  .smc-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+  .smc-price {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 28px; font-weight: 700; color: var(--gold); margin-top: .75rem;
+  }
+
+  /* NEWSLETTER */
+  .newsletter-band {
+    background: var(--green-mid);
+    border-top: 1px solid var(--green-accent);
+    padding: 4rem 2.5rem; text-align: center;
+  }
+  .newsletter-band h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 32px; font-weight: 700; color: #ffffff; margin-bottom: .5rem;
+  }
+  .newsletter-band p {
+    font-size: 17px; color: var(--text-muted); font-style: italic; margin-bottom: 2rem;
+  }
+  .newsletter-form {
+    display: flex; gap: .75rem; max-width: 480px; margin: 0 auto; flex-wrap: wrap; justify-content: center;
+  }
+  .newsletter-form input {
+    flex: 1; min-width: 220px;
+    background: var(--green-rich); border: 1px solid var(--green-accent);
+    color: var(--cream); font-family: 'EB Garamond', Georgia, serif;
+    font-size: 16px; padding: 12px 16px; outline: none;
+    transition: border-color .2s;
+  }
+  .newsletter-form input::placeholder { color: var(--text-muted); }
+  .newsletter-form input:focus { border-color: var(--gold); }
+  .newsletter-form button {
+    background: var(--gold); color: var(--green-deep);
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 12px 24px; border: none;
+    cursor: pointer; font-weight: 600; transition: background .2s;
+  }
+  .newsletter-form button:hover { background: var(--gold-light); }
+  .newsletter-note {
+    font-size: 13px; color: var(--text-muted); margin-top: 1rem; font-style: italic;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--green-deep); border-top: 3px solid var(--gold);
+    padding: 2.5rem 2.5rem 1.5rem;
+  }
+  .footer-top {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem;
+    padding-bottom: 2rem; border-bottom: 1px solid var(--green-accent);
+  }
+  .footer-brand {}
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: .75rem; }
+  .footer-seal {
+    width: 32px; height: 32px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600;
+    color: var(--green-deep);
+  }
+  .footer-brand-name {
+    font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .footer-brand p { font-size: 14px; color: var(--text-muted); max-width: 260px; line-height: 1.6; }
+  .footer-nav h4 {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .75rem;
+  }
+  .footer-nav a {
+    display: block; font-size: 14px; color: var(--text-muted);
+    text-decoration: none; margin-bottom: .4rem; transition: color .2s;
+  }
+  .footer-nav a:hover { color: var(--cream); }
+  .footer-bottom {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-copy { font-family: 'Cinzel', serif; font-size: 11px; color: var(--green-accent); }
+  .footer-location { font-size: 13px; color: var(--text-muted); font-style: italic; }
+
+  @media (max-width: 680px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 10px; }
+    .hero { padding: 4rem 1.25rem 3.5rem; }
+    .about-strip { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.25rem; }
+    .featured-inner { grid-template-columns: 1fr; gap: 1.5rem; padding: 3rem 1.25rem; }
+    .chronicles-section { padding: 3rem 1.25rem; }
+    .services-band { padding: 3rem 1.25rem; }
+    .newsletter-band { padding: 3rem 1.25rem; }
+    footer { padding: 2rem 1.25rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-seal">RC</div>
+    <span class="nav-title">The Remnant Chronicles</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="active">The Writings</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow"><span>Strategic Writing &nbsp;·&nbsp; Doctrinal Analysis</span></div>
+  <h1>The Remnant<br><em>Chronicles</em></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-tagline">Strategic writing infused with doctrinal analysis and scriptural precision — for those who refuse to accept a shallow faith in a deep crisis.</p>
+  <div class="hero-actions">
+    <a href="#chronicles" class="btn-primary">Read the Chronicles</a>
+    <a href="services.html" class="btn-secondary">Commission a Work</a>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Spiritual Discernment</span><span>Doctrinal Analysis</span><span>Prophetic Writing</span><span>Community Restoration</span><span>Scriptural Precision</span><span>Strategic Deep-Dives</span><span>The Remnant Chronicles</span><span>Spiritual Discernment</span><span>Doctrinal Analysis</span><span>Prophetic Writing</span><span>Community Restoration</span><span>Scriptural Precision</span><span>Strategic Deep-Dives</span><span>The Remnant Chronicles</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section>
+  <div class="about-strip">
+    <div class="about-left">
+      <div class="about-seal">JG</div>
+      <div class="about-name">Jimey Grant</div>
+      <div class="about-location">Lafayette, Louisiana</div>
+    </div>
+    <div class="about-right">
+      <div class="about-label">The Author</div>
+      <div class="about-rule"></div>
+      <h2>Writing at the Intersection of Scripture and Reality</h2>
+      <p>The Remnant Chronicles is a body of strategic writing rooted in doctrinal analysis, prophetic insight, and an unflinching examination of the systems that shape our world. Each chronicle is a stand against shallow religion and a call toward the deeper work of the Spirit.</p>
+      <a href="about.html" class="btn-secondary" style="font-size:11px; padding: 10px 22px;">About Jimey Grant</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured-band">
+  <div class="featured-inner">
+    <div class="featured-label-col">
+      <div class="featured-badge">Featured</div>
+      <h3>Latest<br>Chronicle</h3>
+    </div>
+    <div class="featured-content">
+      <h2>The Fall of Babylon</h2>
+      <p>America's spiritual and sovereign stock is in a total freefall. The exit is not a group rate — it is a personal response to a heavenly mandate. A prophetic letter on shifting foundations and the final exodus.</p>
+      <a href="the-fall-of-babylon.html" class="featured-link">Read the Chronicle</a>
+    </div>
+  </div>
+</section>
+
+<!-- CHRONICLES GRID -->
+<section class="chronicles-section" id="chronicles">
+  <div class="section-header">
+    <div class="section-eyebrow">The Writings</div>
+    <div class="section-title">All Chronicles</div>
+    <div class="section-rule"></div>
+  </div>
+  <div class="chronicles-grid">
+
+    <a href="doctrine-of-spiritual-discernment.html" class="chronicle-card">
+      <div class="chronicle-vol">Vol. I</div>
+      <div class="chronicle-title">The Doctrine of Spiritual Discernment</div>
+      <div class="chronicle-desc">Five-fold governance and the guarding of the fold.</div>
+      <div class="chronicle-read">Read Chronicle <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a href="the-architecture-of-chaos.html" class="chronicle-card">
+      <div class="chronicle-vol">Vol. II</div>
+      <div class="chronicle-title">The Architecture of Chaos</div>
+      <div class="chronicle-desc">Analysis of structural chaos according to the Bible.</div>
+      <div class="chronicle-read">Read Chronicle <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a href="the-war-on-life.html" class="chronicle-card">
+      <div class="chronicle-vol">Vol. III</div>
+      <div class="chronicle-title">The War on Life</div>
+      <div class="chronicle-desc">The biblical perspective on the struggle for life.</div>
+      <div class="chronicle-read">Read Chronicle <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a href="the-price-of-the-pint.html" class="chronicle-card">
+      <div class="chronicle-vol">Vol. IV</div>
+      <div class="chronicle-title">The Price of the Pint</div>
+      <div class="chronicle-desc">A spiritual warning on the plasma industry.</div>
+      <div class="chronicle-read">Read Chronicle <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a href="the-covenantal-contrast.html" class="chronicle-card">
+      <div class="chronicle-vol">Vol. V</div>
+      <div class="chronicle-title">The Covenantal Contrast</div>
+      <div class="chronicle-desc">A doctrinal audit of relationship vs. ritualism.</div>
+      <div class="chronicle-read">Read Chronicle <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a href="hidden-in-christ.html" class="chronicle-card">
+      <div class="chronicle-vol">Vol. VI</div>
+      <div class="chronicle-title">Hidden in Christ</div>
+      <div class="chronicle-desc">The Spirit's exit strategy for a world on fire.</div>
+      <div class="chronicle-read">Read Chronicle <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a href="community-restoration.html" class="chronicle-card">
+      <div class="chronicle-vol">Vol. VII</div>
+      <div class="chronicle-title">Community Restoration</div>
+      <div class="chronicle-desc">Restoration as an ethical and generational work.</div>
+      <div class="chronicle-read">Read Chronicle <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a href="spiritual-authority.html" class="chronicle-card">
+      <div class="chronicle-vol">Vol. VIII</div>
+      <div class="chronicle-title">Spiritual Authority</div>
+      <div class="chronicle-desc">A challenge to modern substitutes for Spirit-led leadership.</div>
+      <div class="chronicle-read">Read Chronicle <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a href="the-gift-of-salvation.html" class="chronicle-card">
+      <div class="chronicle-vol">Vol. IX</div>
+      <div class="chronicle-title">The Gift of Salvation</div>
+      <div class="chronicle-desc">Salvation as total transfiguration of body, mind, and spirit.</div>
+      <div class="chronicle-read">Read Chronicle <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a href="the-soldier-the-jesuit.html" class="chronicle-card">
+      <div class="chronicle-vol">Vol. X</div>
+      <div class="chronicle-title">The Soldier &amp; The Jesuit</div>
+      <div class="chronicle-desc">The architecture of indoctrination exposed.</div>
+      <div class="chronicle-read">Read Chronicle <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a href="the-misdiagnosis.html" class="chronicle-card">
+      <div class="chronicle-vol">Vol. XI</div>
+      <div class="chronicle-title">The Misdiagnosis</div>
+      <div class="chronicle-desc">Trading potential for compliance.</div>
+      <div class="chronicle-read">Read Chronicle <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a href="the-fall-of-babylon.html" class="chronicle-card">
+      <div class="chronicle-vol">Vol. XII</div>
+      <div class="chronicle-title">The Fall of Babylon</div>
+      <div class="chronicle-desc">Identifying the shifting foundations of worldly systems.</div>
+      <div class="chronicle-read">Read Chronicle <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-band">
+  <h2>Commission a Work</h2>
+  <p>Strategic writing for organizations, leaders, and publications that demand substance.</p>
+  <div class="services-mini-grid">
+    <div class="services-mini-card">
+      <div class="smc-title">Articles &amp; Features</div>
+      <div class="smc-desc">High-retention storytelling for digital and print platforms.</div>
+      <div class="smc-price">$150</div>
+    </div>
+    <div class="services-mini-card">
+      <div class="smc-title">Executive Briefs &amp; Op-Eds</div>
+      <div class="smc-desc">Strategic thought-leadership with authority and clarity.</div>
+      <div class="smc-price">$150</div>
+    </div>
+    <div class="services-mini-card">
+      <div class="smc-title">Strategic Deep-Dives</div>
+      <div class="smc-desc">Rigorous biblical analysis to ground your organization's mission.</div>
+      <div class="smc-price">$150</div>
+    </div>
+  </div>
+  <a href="services.html" class="btn-primary">View Full Services</a>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-band">
+  <h2>Join the Chronicle</h2>
+  <p>New writings delivered directly to your inbox. No noise — only substance.</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="Your email address">
+    <button type="submit">Subscribe</button>
+  </div>
+  <p class="newsletter-note">No spam. Unsubscribe at any time.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="footer-seal">RC</div>
+        <span class="footer-brand-name">The Remnant Chronicles</span>
+      </div>
+      <p>Strategic writing infused with doctrinal analysis and scriptural precision.</p>
+    </div>
+    <div class="footer-nav">
+      <h4>The Writings</h4>
+      <a href="doctrine-of-spiritual-discernment.html">Vol. I — Spiritual Discernment</a>
+      <a href="the-architecture-of-chaos.html">Vol. II — Architecture of Chaos</a>
+      <a href="the-war-on-life.html">Vol. III — The War on Life</a>
+      <a href="the-price-of-the-pint.html">Vol. IV — Price of the Pint</a>
+      <a href="the-fall-of-babylon.html">Vol. XII — Fall of Babylon</a>
+    </div>
+    <div class="footer-nav">
+      <h4>Navigation</h4>
+      <a href="index.html">The Writings</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Jimey Grant &nbsp;·&nbsp; The Remnant Chronicles. All Rights Reserved.</span>
+    <span class="footer-location">Lafayette, Louisiana</span>
+  </div>
+</footer>
+
+</body>
+</html>

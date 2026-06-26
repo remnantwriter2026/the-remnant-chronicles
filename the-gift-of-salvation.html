@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Gift of Salvation | The Remnant Chronicles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0f2219;
+    --green-dark: #152e21;
+    --green-mid: #1a3a2a;
+    --green-rich: #1e4432;
+    --green-accent: #2a5c40;
+    --gold: #C9941A;
+    --gold-light: #e0ac3a;
+    --cream: #f0ead8;
+    --cream-muted: #c8bfa8;
+    --text-body: #d8cdb8;
+    --text-muted: #8aaa90;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--green-deep);
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.85;
+  }
+
+  nav {
+    background: var(--green-deep);
+    border-bottom: 1px solid var(--gold);
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-seal {
+    width: 36px; height: 36px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600;
+    color: var(--green-deep); letter-spacing: 1px;
+  }
+  .nav-title { font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-family: 'Cinzel', serif; font-size: 11px; color: var(--text-muted);
+    text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .article-hero {
+    background: var(--green-rich); border-bottom: 3px solid var(--gold);
+    padding: 5rem 2.5rem 4rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .article-hero::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: var(--green-accent); opacity: .3;
+  }
+  .article-hero::after {
+    content: ''; position: absolute; bottom: -60px; left: -40px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: var(--green-accent); opacity: .2;
+  }
+  .article-label {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; position: relative;
+  }
+  .article-label span { display: inline-block; border: 1px solid var(--gold); padding: 4px 16px; }
+  .article-hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(32px, 5vw, 54px); font-weight: 700;
+    color: #ffffff; line-height: 1.15; margin-bottom: .75rem; position: relative;
+  }
+  .article-hero h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(16px, 2.5vw, 22px); font-weight: 400;
+    font-style: italic; color: var(--gold-light); margin-bottom: 2rem; position: relative;
+  }
+  .hero-divider { width: 80px; height: 3px; background: var(--gold); margin: 0 auto 2rem; position: relative; }
+  .article-meta {
+    display: flex; align-items: center; justify-content: center; gap: 2rem;
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px;
+    color: var(--text-muted); text-transform: uppercase; position: relative; flex-wrap: wrap;
+  }
+
+  .article-wrapper { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+
+  .article-intro {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px; font-style: italic; color: var(--cream-muted);
+    line-height: 1.7; border-left: 3px solid var(--gold);
+    padding-left: 1.5rem; margin-bottom: 3rem;
+  }
+
+  .section-head {
+    font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600;
+    color: var(--gold); letter-spacing: 2px; text-transform: uppercase;
+    margin: 3rem 0 1.25rem; padding-bottom: .75rem;
+    border-bottom: 1px solid var(--green-accent);
+  }
+
+  .article-body p { margin-bottom: 1.5rem; color: var(--text-body); }
+
+  .article-body > p:first-of-type::first-letter {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 72px; font-weight: 700; color: var(--gold);
+    float: left; line-height: .8; margin: 8px 12px 0 0;
+  }
+
+  .scripture-block {
+    background: var(--green-rich); border-left: 4px solid var(--gold);
+    padding: 1.5rem 1.75rem; margin: 2rem 0;
+  }
+  .scripture-ref {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .scripture-block p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-style: italic; color: var(--cream);
+    line-height: 1.65; margin: 0 !important;
+  }
+
+  .protocol-steps {
+    margin: 2rem 0;
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+  }
+  .protocol-step {
+    margin-bottom: 1.75rem; padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--green-accent);
+    position: relative;
+  }
+  .protocol-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .protocol-step::before {
+    content: '';
+    position: absolute; left: -1.75rem; top: 8px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold);
+  }
+  .protocol-num {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .3rem;
+  }
+  .protocol-title {
+    font-size: 17px; font-weight: 600; color: var(--cream); margin-bottom: .4rem;
+  }
+  .protocol-step p { font-size: 16px; color: var(--text-muted); line-height: 1.7; margin: 0; }
+
+  .light-box {
+    border: 1px solid var(--gold); background: var(--green-rich);
+    padding: 2rem; margin: 2.5rem 0;
+  }
+  .light-label {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+  }
+  .light-box p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 21px; font-style: italic; color: var(--cream);
+    line-height: 1.6; margin: 0 !important;
+  }
+
+  .after-light-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px; background: var(--green-accent); margin: 2rem 0;
+  }
+  .after-card { background: var(--green-rich); padding: 1.25rem; }
+  .after-label {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .4rem;
+  }
+  .after-card p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin: 0; }
+
+  .section-rule { width: 100%; height: 1px; background: var(--green-accent); margin: 2.5rem 0; }
+
+  .conclusion-box {
+    background: var(--green-rich); border: 1px solid var(--gold);
+    padding: 2rem 2.25rem; margin: 3rem 0 0;
+  }
+  .conclusion-box h3 {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .conclusion-box p {
+    color: var(--cream-muted); margin-bottom: 1rem; font-size: 18px; line-height: 1.8;
+  }
+  .conclusion-box p:last-child { margin-bottom: 0; }
+  .conclusion-final {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-style: italic;
+    color: var(--gold-light) !important; margin-top: 1rem !important;
+  }
+
+  .article-footer {
+    border-top: 1px solid var(--green-accent); margin-top: 4rem; padding-top: 2.5rem;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+  }
+  .author-block { display: flex; align-items: center; gap: 12px; }
+  .author-initials {
+    width: 48px; height: 48px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 14px; color: var(--green-deep); font-weight: 600;
+  }
+  .author-name { font-family: 'Cinzel', serif; font-size: 13px; color: var(--cream); letter-spacing: 1px; }
+  .author-title { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .back-btn {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--gold); text-decoration: none;
+    border: 1px solid var(--gold); padding: 10px 22px; transition: all .2s;
+  }
+  .back-btn:hover { background: var(--gold); color: var(--green-deep); }
+
+  .cta-strip {
+    background: var(--green-mid); border-top: 3px solid var(--gold);
+    padding: 3rem 2.5rem; text-align: center;
+  }
+  .cta-strip h3 {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .cta-strip p { font-size: 16px; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .cta-btn {
+    display: inline-block; background: var(--gold); color: var(--green-deep);
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 13px 32px; text-decoration: none;
+    font-weight: 600; transition: background .2s;
+  }
+  .cta-btn:hover { background: var(--gold-light); }
+
+  footer {
+    background: var(--green-deep); border-top: 1px solid var(--green-accent);
+    padding: 1.5rem 2.5rem; display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-name { font-family: 'Cinzel', serif; font-size: 12px; color: var(--gold); letter-spacing: 1px; }
+  .footer-copy { font-family: 'Cinzel', serif; font-size: 11px; color: var(--green-accent); }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 10px; }
+    .article-hero { padding: 3.5rem 1.25rem 3rem; }
+    .article-wrapper { padding: 2.5rem 1.25rem 3.5rem; }
+    .article-footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-seal">RC</div>
+    <span class="nav-title">The Remnant Chronicles</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">The Writings</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-label"><span>The Remnant Chronicles &nbsp;·&nbsp; Vol. IX</span></div>
+  <h1>The Gift of Salvation</h1>
+  <h2>Defining Salvation as an Active, Total Transfiguration of Body, Mind, and Spirit</h2>
+  <div class="hero-divider"></div>
+  <div class="article-meta">
+    <span>By Jimey Grant</span>
+    <span>Lafayette, Louisiana</span>
+    <span>Doctrinal Chronicle</span>
+  </div>
+</header>
+
+<main class="article-wrapper">
+
+  <p class="article-intro">
+    True salvation is not a religious "sign-up" sheet. It is a total transfiguration of the body, mind, and spirit — the death of an old life and the traumatic, beautiful birth of a new one.
+  </p>
+
+  <div class="article-body">
+
+    <p>
+      In the modern religious landscape, we have reduced the most powerful cosmic event in human history to a mere "sinner's prayer" and a casual recitation of Ephesians 2:8. We have been taught that salvation is a passive insurance policy rather than an active, agonizing, and ultimately glorious transfiguration of the human soul. But as we navigate the social unrest and systemic chaos of 2026, a "form of godliness that denies the power thereof" will no longer suffice. To understand true salvation and the gift of the Holy Spirit, we must look past the church pews and into the shadows of the Garden of Gethsemane.
+    </p>
+
+    <div class="section-head">The Purging of the Will</div>
+
+    <p>
+      Matthew 26:36–46 records the most intense legal and spiritual transaction ever witnessed: Jesus in the Garden. We often view Gethsemane merely as a moment of prayer — but it was actually a place of purging. It was the site where the human will was systematically surrendered to the divine mandate.
+    </p>
+
+    <div class="scripture-block">
+      <div class="scripture-ref">Luke 22:42</div>
+      <p>When Jesus cried out in agony, He was demonstrating the Gethsemane protocol — the necessity of dying to the self before one can ever hope to walk in the power of the resurrection.</p>
+    </div>
+
+    <p>
+      If the Son of God had to undergo a physical and spiritual "crushing" to fulfill the requirements of salvation, what makes the modern believer think that a thirty-second ritualistic prayer is sufficient? True salvation is not a religious "sign-up" sheet; it is a total transfiguration of the body, mind, and spirit (Romans 12:2). It is the death of an old life and the traumatic, beautiful birth of a new one.
+    </p>
+
+    <div class="section-head">The Blueprint of the Search</div>
+
+    <div class="scripture-block">
+      <div class="scripture-ref">Philippians 2:12</div>
+      <p>"Work out your own salvation with fear and trembling." This is an individual mandate that requires more than a Sunday morning attendance.</p>
+    </div>
+
+    <p>
+      In the digital landscape of 2026, the noise is engineered. The religious are kept in a state of constant distraction by algorithms designed to drown out the still, small voice of the Father. To engage the Gethsemane protocol is to intentionally disconnect from the digital feed and enter the silence of the wilderness.
+    </p>
+
+    <div class="protocol-steps">
+      <div class="protocol-step">
+        <div class="protocol-num">Step 1</div>
+        <div class="protocol-title">Fasting</div>
+        <p>Not a work of the law — a spiritual tool used to break demonic strongholds and clear the cognitive noise that prevents us from hearing the rhema word of God. Whether a 24-hour dry fast or a longer consecration, the goal is to bring the flesh into subjection so the spirit can cry out in sincerity.</p>
+      </div>
+      <div class="protocol-step">
+        <div class="protocol-num">Step 2</div>
+        <div class="protocol-title">Radical Confession</div>
+        <p>A thorough, explanatory confession — taking the sins you are guilty of and laying them out before the Lord with radical honesty. Not a casual recitation. A legal, spiritual unburdening.</p>
+      </div>
+      <div class="protocol-step">
+        <div class="protocol-num">Step 3</div>
+        <div class="protocol-title">Worship as Atmosphere</div>
+        <p>Worship is not a musical interlude in this process — it is the atmosphere that ushers in the very presence of God, creating the "spiritual laboratory" where deliverance can occur.</p>
+      </div>
+    </div>
+
+    <div class="section-head">Turning on the Light</div>
+
+    <div class="light-box">
+      <div class="light-label">The Metaphor of the Hour</div>
+      <p>Obtaining the gift of the Holy Spirit is like entering a pitch-black, trashed room and finally turning on the light. You don't see the mess until the light is present.</p>
+    </div>
+
+    <p>
+      When the Holy Spirit finally makes His habitation within a man, the experience is often misunderstood. Many believe life becomes "easier." In reality, that is when the true warfare begins.
+    </p>
+
+    <div class="after-light-grid">
+      <div class="after-card">
+        <div class="after-label">What You Begin to See</div>
+        <p>The generational curses that have bound your family for decades. The demonic influences and spirit husbands or wives that operated in the shadows of your life.</p>
+      </div>
+      <div class="after-card">
+        <div class="after-label">What You Receive</div>
+        <p>Spiritual eyes to see the mess — and Kingdom authority to start the clean-up. You become a threat to the kingdom of darkness.</p>
+      </div>
+      <div class="after-card">
+        <div class="after-label">What Changes</div>
+        <p>Hell becomes aware of your name. You now possess the spiritual weaponry to penetrate the kingdom of darkness. The light has been turned on.</p>
+      </div>
+    </div>
+
+    <div class="section-head">The Peace That Surpasses Systems</div>
+
+    <p>
+      The systematic structures of religion — the seminaries and the governmental church models — cannot give you this. No man can give you salvation; he can only point you toward the fire of God (Matthew 3:11–12). This walk is not for the weak or the half-hearted. It is for those who realize that the only true peace available in these end times — a peace that surpasses all understanding — is found in the Gethsemane experience.
+    </p>
+
+    <p>
+      Salvation is a powerful, physical, and spiritual rebirth (Genesis 2:7). It is the process of being "unschooled" by the world and "taught" by the Spirit. As we see the fall of the dollar, the push for global sustainability, and the increase in social unrest, the Gethsemane protocol remains the only stable foundation.
+    </p>
+
+    <div class="section-rule"></div>
+
+    <div class="conclusion-box">
+      <h3>The Only Investment That Matters</h3>
+      <p>
+        Salvation is the transition from a knowing of God to a relationship with Him. It is not a passive insurance policy — it is the most active, demanding, and rewarding pursuit available to a human soul.
+      </p>
+      <p>
+        This is the only investment that yields a return in both this realm and the one that is to come. As the systems of the world crumble and the noise grows louder, the Gethsemane protocol remains the only stable foundation.
+      </p>
+      <p>
+        Enter the Garden. Surrender the will. Turn on the light.
+      </p>
+      <p class="conclusion-final">
+        Hell will know your name. Heaven will know your fruit.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="author-block">
+      <div class="author-initials">JG</div>
+      <div>
+        <div class="author-name">Jimey Grant</div>
+        <div class="author-title">The Remnant Chronicles &nbsp;·&nbsp; Lafayette, Louisiana</div>
+      </div>
+    </div>
+    <a href="index.html" class="back-btn">← All Chronicles</a>
+  </div>
+
+</main>
+
+<section class="cta-strip">
+  <h3>Commission a Work</h3>
+  <p>Strategic writing infused with doctrinal analysis and scriptural precision.</p>
+  <a href="services.html" class="cta-btn">View Services</a>
+</section>
+
+<footer>
+  <span class="footer-name">Jimey Grant &nbsp;·&nbsp; The Remnant Chronicles</span>
+  <span class="footer-copy">© 2026 All Rights Reserved</span>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fall of Babylon | The Remnant Chronicles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0f2219;
+    --green-dark: #152e21;
+    --green-mid: #1a3a2a;
+    --green-rich: #1e4432;
+    --green-accent: #2a5c40;
+    --gold: #C9941A;
+    --gold-light: #e0ac3a;
+    --cream: #f0ead8;
+    --cream-muted: #c8bfa8;
+    --text-body: #d8cdb8;
+    --text-muted: #8aaa90;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--green-deep);
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.85;
+  }
+
+  nav {
+    background: var(--green-deep);
+    border-bottom: 1px solid var(--gold);
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-seal {
+    width: 36px; height: 36px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600;
+    color: var(--green-deep); letter-spacing: 1px;
+  }
+  .nav-title { font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-family: 'Cinzel', serif; font-size: 11px; color: var(--text-muted);
+    text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .article-hero {
+    background: var(--green-rich); border-bottom: 3px solid var(--gold);
+    padding: 5rem 2.5rem 4rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .article-hero::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: var(--green-accent); opacity: .3;
+  }
+  .article-hero::after {
+    content: ''; position: absolute; bottom: -60px; left: -40px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: var(--green-accent); opacity: .2;
+  }
+  .article-label {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; position: relative;
+  }
+  .article-label span { display: inline-block; border: 1px solid var(--gold); padding: 4px 16px; }
+  .article-hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(32px, 5vw, 54px); font-weight: 700;
+    color: #ffffff; line-height: 1.15; margin-bottom: .75rem; position: relative;
+  }
+  .article-hero h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(16px, 2.5vw, 22px); font-weight: 400;
+    font-style: italic; color: var(--gold-light); margin-bottom: 2rem; position: relative;
+  }
+  .hero-divider { width: 80px; height: 3px; background: var(--gold); margin: 0 auto 2rem; position: relative; }
+  .article-meta {
+    display: flex; align-items: center; justify-content: center; gap: 2rem;
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px;
+    color: var(--text-muted); text-transform: uppercase; position: relative; flex-wrap: wrap;
+  }
+
+  .article-wrapper { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+
+  .article-intro {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px; font-style: italic; color: var(--cream-muted);
+    line-height: 1.7; border-left: 3px solid var(--gold);
+    padding-left: 1.5rem; margin-bottom: 3rem;
+  }
+
+  .section-head {
+    font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600;
+    color: var(--gold); letter-spacing: 2px; text-transform: uppercase;
+    margin: 3rem 0 1.25rem; padding-bottom: .75rem;
+    border-bottom: 1px solid var(--green-accent);
+  }
+
+  .article-body p { margin-bottom: 1.5rem; color: var(--text-body); }
+
+  .article-body > p:first-of-type::first-letter {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 72px; font-weight: 700; color: var(--gold);
+    float: left; line-height: .8; margin: 8px 12px 0 0;
+  }
+
+  .scripture-block {
+    background: var(--green-rich); border-left: 4px solid var(--gold);
+    padding: 1.5rem 1.75rem; margin: 2rem 0;
+  }
+  .scripture-ref {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .scripture-block p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-style: italic; color: var(--cream);
+    line-height: 1.65; margin: 0 !important;
+  }
+
+  .captivity-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--green-accent); margin: 2rem 0;
+  }
+  .captivity-card { background: var(--green-rich); padding: 1.5rem; }
+  .captivity-era {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .4rem;
+  }
+  .captivity-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px; font-weight: 600; color: var(--cream); margin-bottom: .6rem;
+  }
+  .captivity-card p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin: 0; }
+  .captivity-card.then { border-top: 3px solid #4a3a2a; }
+  .captivity-card.now { border-top: 3px solid var(--gold); }
+
+  .alert-block {
+    background: var(--green-rich); border-top: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+    padding: 2rem; margin: 2.5rem 0; text-align: center;
+  }
+  .alert-label {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+  }
+  .alert-block p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 23px; font-style: italic; color: var(--cream);
+    line-height: 1.5; margin: 0 !important;
+  }
+
+  .exodus-steps {
+    margin: 2rem 0;
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+  }
+  .exodus-step {
+    margin-bottom: 1.75rem; padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--green-accent);
+    position: relative;
+  }
+  .exodus-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .exodus-step::before {
+    content: '';
+    position: absolute; left: -1.75rem; top: 8px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold);
+  }
+  .exodus-num {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .3rem;
+  }
+  .exodus-title {
+    font-size: 17px; font-weight: 600; color: var(--cream); margin-bottom: .4rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  .exodus-step p { font-size: 16px; color: var(--text-muted); line-height: 1.7; margin: 0; }
+
+  .warning-box {
+    border: 1px solid var(--gold); background: var(--green-rich);
+    padding: 1.75rem 2rem; margin: 2rem 0;
+  }
+  .warning-label {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .75rem;
+  }
+  .warning-box p {
+    font-size: 17px; color: var(--cream-muted); line-height: 1.8; margin: 0;
+  }
+
+  .section-rule { width: 100%; height: 1px; background: var(--green-accent); margin: 2.5rem 0; }
+
+  .conclusion-box {
+    background: var(--green-rich); border: 1px solid var(--gold);
+    padding: 2rem 2.25rem; margin: 3rem 0 0;
+  }
+  .conclusion-box h3 {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .conclusion-box p {
+    color: var(--cream-muted); margin-bottom: 1rem; font-size: 18px; line-height: 1.8;
+  }
+  .conclusion-box p:last-child { margin-bottom: 0; }
+  .conclusion-final {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-style: italic;
+    color: var(--gold-light) !important; margin-top: 1rem !important;
+  }
+
+  .article-footer {
+    border-top: 1px solid var(--green-accent); margin-top: 4rem; padding-top: 2.5rem;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+  }
+  .author-block { display: flex; align-items: center; gap: 12px; }
+  .author-initials {
+    width: 48px; height: 48px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 14px; color: var(--green-deep); font-weight: 600;
+  }
+  .author-name { font-family: 'Cinzel', serif; font-size: 13px; color: var(--cream); letter-spacing: 1px; }
+  .author-title { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .back-btn {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--gold); text-decoration: none;
+    border: 1px solid var(--gold); padding: 10px 22px; transition: all .2s;
+  }
+  .back-btn:hover { background: var(--gold); color: var(--green-deep); }
+
+  .cta-strip {
+    background: var(--green-mid); border-top: 3px solid var(--gold);
+    padding: 3rem 2.5rem; text-align: center;
+  }
+  .cta-strip h3 {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .cta-strip p { font-size: 16px; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .cta-btn {
+    display: inline-block; background: var(--gold); color: var(--green-deep);
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 13px 32px; text-decoration: none;
+    font-weight: 600; transition: background .2s;
+  }
+  .cta-btn:hover { background: var(--gold-light); }
+
+  footer {
+    background: var(--green-deep); border-top: 1px solid var(--green-accent);
+    padding: 1.5rem 2.5rem; display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-name { font-family: 'Cinzel', serif; font-size: 12px; color: var(--gold); letter-spacing: 1px; }
+  .footer-copy { font-family: 'Cinzel', serif; font-size: 11px; color: var(--green-accent); }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 10px; }
+    .article-hero { padding: 3.5rem 1.25rem 3rem; }
+    .article-wrapper { padding: 2.5rem 1.25rem 3.5rem; }
+    .captivity-grid { grid-template-columns: 1fr; }
+    .article-footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-seal">RC</div>
+    <span class="nav-title">The Remnant Chronicles</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">The Writings</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-label"><span>The Remnant Chronicles &nbsp;·&nbsp; Vol. XII</span></div>
+  <h1>The Fall of Babylon</h1>
+  <h2>A Prophetic Letter on Shifting Foundations and the Final Exodus</h2>
+  <div class="hero-divider"></div>
+  <div class="article-meta">
+    <span>By Jimey Grant</span>
+    <span>Lafayette, Louisiana</span>
+    <span>Prophetic Chronicle</span>
+  </div>
+</header>
+
+<main class="article-wrapper">
+
+  <p class="article-intro">
+    The exit is not a group rate. It is a personal response to a heavenly mandate. A man can be physically free but spiritually incarcerated — and the exodus must begin within.
+  </p>
+
+  <div class="article-body">
+
+    <p>
+      While the world remains fixated on the chaotic noise of shifting global policies and the rising heat of international conflict, the true signal is undeniable: America's spiritual and sovereign stock is in a total freefall. Other nations no longer see a global policeman; they see a vulnerable corporate opportunity — a market expansion waiting to be claimed. Adversaries are no longer afraid of the "sword" because they believe the arm holding it has gone limp.
+    </p>
+
+    <div class="scripture-block">
+      <div class="scripture-ref">Revelation 13:10</div>
+      <p>The sword once swung by this nation is now being sharpened for its own neck — demanding a level of endurance from the saints that few are prepared to give.</p>
+    </div>
+
+    <p>
+      To truly grasp the weight of Revelation 13:10, we must look through a dual lens. Historically, this mandate mirrors the prototype of the Israelites in Egypt — a people led into physical captivity by a world power. Some Hebrew Israelite camps interpret this prophecy as a promise of future physical vengeance, identifying African Americans as the true Israelites and viewing Caucasian descendants of enslavers as the biblical "Esau/Edom." However, a deeper look at the conclusion of that verse — the patience and faith of the saints — suggests a spiritual reality that transcends both physical skin and bloodlines.
+    </p>
+
+    <div class="captivity-grid">
+      <div class="captivity-card then">
+        <div class="captivity-era">Then · Physical Egypt</div>
+        <div class="captivity-title">Chains of History</div>
+        <p>The Transatlantic Slave Trade. Physical captivity by a world power. A matter of recorded history — and undeniable generational consequence.</p>
+      </div>
+      <div class="captivity-card now">
+        <div class="captivity-era">Now · Spiritual Babylon</div>
+        <div class="captivity-title">Chains of the Present Heart</div>
+        <p>A man can be physically free but spiritually incarcerated. The cords of sin hold fast. We become the property of our own actions and indulgences.</p>
+      </div>
+    </div>
+
+    <p>
+      Jesus warned in John 8:34 that whosoever committeth sin is the servant of sin — and as 2 Peter 2:19 confirms, people are slaves to whatever has mastered them. Proverbs 5:22 warns that the cords of sin hold a man fast, and Psalm 9:16 confirms we are often ensnared by the very work of our own hands. This is why the exodus must begin within.
+    </p>
+
+    <div class="alert-block">
+      <div class="alert-label">The Spiritual Mandate</div>
+      <p>To "come out" of Babylon while remaining tied to the cords of iniquity is a spiritual impossibility. You are defined by the master you serve. Matthew 6:24 — no man can serve two masters.</p>
+    </div>
+
+    <div class="section-head">Physical Egypt, Spiritual Babylon: The Final Exodus</div>
+
+    <p>
+      To understand the mechanics of this national collapse, we must look at the blueprint in the Book of Daniel. Many scholars identify the "feet of iron and clay" in Nebuchadnezzar's dream as the final iteration of world power — a fragile coalition that perfectly mirrors the internal fracturing of the United States. This is the modern "Babylon": a kingdom held together by force but divided in its soul.
+    </p>
+
+    <div class="scripture-block">
+      <div class="scripture-ref">Revelation 18:2 & 18:4</div>
+      <p>"Babylon the great has fallen... and has become a dwelling place of demons." The warning in verse 4 is no longer a suggestion — it is a strategic evacuation order: "Come out of her, my people, that ye be not partakers of her sins."</p>
+    </div>
+
+    <p>
+      This vision describes a total systemic failure — a collapse that occurs in a single day, leaving the global kings who profited from her standing in shock at the empty shells of their investments. Just as the angels asked Lot in Genesis 19:12 if he had any family to bring out of the city, there is a specific search underway for those who belong to the covenant — those "sealed with the Holy Spirit of promise" (Ephesians 1:13).
+    </p>
+
+    <div class="warning-box">
+      <div class="warning-label">A Critical Clarification</div>
+      <p>A biological connection does not guarantee a covenant relationship. If it did, a family member practicing witchcraft would be saved simply because their cousin is filled with the Holy Spirit. As Paul reminded us in Philippians 2:12 — we must each work out our own salvation with fear and trembling. The exit is not a group rate; it is a personal response to a heavenly mandate.</p>
+    </div>
+
+    <div class="section-head">Discernment in the Hour of Matthew 24</div>
+
+    <p>
+      In this hour of systemic liquidation, the signal is no longer a distant warning — it is a present reality. To survive the "one day" collapse of this global enterprise, we must move beyond the vanity of bloodlines and the noise of political warfare.
+    </p>
+
+    <div class="exodus-steps">
+      <div class="exodus-step">
+        <div class="exodus-num">Requirement 1</div>
+        <div class="exodus-title">Radical Repentance</div>
+        <p>A turning away from the internal masters of sin that have kept us in a captivity far more dangerous than any physical chain. Not a casual prayer — a total reorientation of loyalty.</p>
+      </div>
+      <div class="exodus-step">
+        <div class="exodus-num">Requirement 2</div>
+        <div class="exodus-title">Sharpened Discernment</div>
+        <p>We must petition the heavens for an increase in discernment. As Matthew 24:24 warns, the final days will see false prophets and signs so calculated that, if possible, they would deceive the very elect.</p>
+      </div>
+      <div class="exodus-step">
+        <div class="exodus-num">Requirement 3</div>
+        <div class="exodus-title">Identity in the Seal, Not the Empire</div>
+        <p>The time has come to ensure your identity is found in the seal of promise — not in the "iron and clay" of a falling empire. Your covenant relationship, not your bloodline, is your identifier.</p>
+      </div>
+    </div>
+
+    <div class="section-rule"></div>
+
+    <div class="conclusion-box">
+      <h3>The Only Exit Strategy That Holds</h3>
+      <p>
+        We have seen how the physical Egypt of our history has transitioned into the spiritual Babylon of our current soul-condition. The chains have changed form — but the Deliverer has not.
+      </p>
+      <p>
+        If your discernment is not sharpened by the Holy Spirit, you will mistake the signs of the adversary for the wonders of the Kingdom. The call to "come out" is personal, it is urgent, and it is the only exit strategy that holds eternal value.
+      </p>
+      <p>
+        The Remnant does not wait for a political savior. The Remnant comes out.
+      </p>
+      <p class="conclusion-final">
+        The exit is not a group rate. It is a personal response to a heavenly mandate.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="author-block">
+      <div class="author-initials">JG</div>
+      <div>
+        <div class="author-name">Jimey Grant</div>
+        <div class="author-title">The Remnant Chronicles &nbsp;·&nbsp; Lafayette, Louisiana</div>
+      </div>
+    </div>
+    <a href="index.html" class="back-btn">← All Chronicles</a>
+  </div>
+
+</main>
+
+<section class="cta-strip">
+  <h3>Commission a Work</h3>
+  <p>Strategic writing infused with doctrinal analysis and scriptural precision.</p>
+  <a href="services.html" class="cta-btn">View Services</a>
+</section>
+
+<footer>
+  <span class="footer-name">Jimey Grant &nbsp;·&nbsp; The Remnant Chronicles</span>
+  <span class="footer-copy">© 2026 All Rights Reserved</span>
+</footer>
+
+</body>
+</html>

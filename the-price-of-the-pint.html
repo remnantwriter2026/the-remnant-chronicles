@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Price of the Pint | The Remnant Chronicles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0f2219;
+    --green-dark: #152e21;
+    --green-mid: #1a3a2a;
+    --green-rich: #1e4432;
+    --green-accent: #2a5c40;
+    --gold: #C9941A;
+    --gold-light: #e0ac3a;
+    --cream: #f0ead8;
+    --cream-muted: #c8bfa8;
+    --text-body: #d8cdb8;
+    --text-muted: #8aaa90;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--green-deep);
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.85;
+  }
+
+  nav {
+    background: var(--green-deep);
+    border-bottom: 1px solid var(--gold);
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-seal {
+    width: 36px; height: 36px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600;
+    color: var(--green-deep); letter-spacing: 1px;
+  }
+  .nav-title { font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-family: 'Cinzel', serif; font-size: 11px; color: var(--text-muted);
+    text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .article-hero {
+    background: var(--green-rich); border-bottom: 3px solid var(--gold);
+    padding: 5rem 2.5rem 4rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .article-hero::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: var(--green-accent); opacity: .3;
+  }
+  .article-hero::after {
+    content: ''; position: absolute; bottom: -60px; left: -40px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: var(--green-accent); opacity: .2;
+  }
+  .article-label {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; position: relative;
+  }
+  .article-label span { display: inline-block; border: 1px solid var(--gold); padding: 4px 16px; }
+  .article-hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(32px, 5vw, 54px); font-weight: 700;
+    color: #ffffff; line-height: 1.15; margin-bottom: .75rem; position: relative;
+  }
+  .article-hero h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(16px, 2.5vw, 22px); font-weight: 400;
+    font-style: italic; color: var(--gold-light); margin-bottom: 2rem; position: relative;
+  }
+  .hero-divider { width: 80px; height: 3px; background: var(--gold); margin: 0 auto 2rem; position: relative; }
+  .article-meta {
+    display: flex; align-items: center; justify-content: center; gap: 2rem;
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px;
+    color: var(--text-muted); text-transform: uppercase; position: relative; flex-wrap: wrap;
+  }
+
+  .article-wrapper { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+
+  .article-intro {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px; font-style: italic; color: var(--cream-muted);
+    line-height: 1.7; border-left: 3px solid var(--gold);
+    padding-left: 1.5rem; margin-bottom: 3rem;
+  }
+
+  .chapter-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin: 3.5rem 0 1.5rem;
+  }
+  .chapter-num {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--green-deep);
+    background: var(--gold); padding: 4px 12px; white-space: nowrap;
+  }
+  .chapter-title {
+    font-family: 'Cinzel', serif; font-size: 14px; font-weight: 600;
+    color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase;
+  }
+
+  .article-body h4 {
+    font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600;
+    color: var(--gold); letter-spacing: 2px; text-transform: uppercase;
+    margin: 2rem 0 1rem; padding-bottom: .5rem;
+    border-bottom: 1px solid var(--green-accent);
+  }
+
+  .article-body p { margin-bottom: 1.5rem; color: var(--text-body); }
+
+  .article-body > p:first-of-type::first-letter {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 72px; font-weight: 700; color: var(--gold);
+    float: left; line-height: .8; margin: 8px 12px 0 0;
+  }
+
+  .scripture-block {
+    background: var(--green-rich); border-left: 4px solid var(--gold);
+    padding: 1.5rem 1.75rem; margin: 2rem 0;
+  }
+  .scripture-ref {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .scripture-block p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-style: italic; color: var(--cream);
+    line-height: 1.65; margin: 0 !important;
+  }
+
+  .legal-box {
+    border: 1px solid var(--gold); background: var(--green-rich);
+    padding: 1.75rem 2rem; margin: 2rem 0;
+  }
+  .legal-label {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .75rem;
+  }
+  .legal-box p {
+    font-size: 17px; color: var(--cream-muted); line-height: 1.8; margin-bottom: .75rem;
+  }
+  .legal-box p:last-child { margin-bottom: 0; }
+
+  .section-rule { width: 100%; height: 1px; background: var(--green-accent); margin: 2.5rem 0; }
+
+  .verdict-block {
+    background: var(--green-rich); border-top: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+    padding: 2rem 2.25rem; margin: 2.5rem 0;
+  }
+  .verdict-label {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .75rem;
+  }
+  .verdict-block p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 21px; font-style: italic; color: var(--cream);
+    line-height: 1.65; margin: 0;
+  }
+
+  .conclusion-box {
+    background: var(--green-rich); border: 1px solid var(--gold);
+    padding: 2rem 2.25rem; margin: 3rem 0 0;
+  }
+  .conclusion-box h3 {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .conclusion-box p {
+    color: var(--cream-muted); margin-bottom: 1rem; font-size: 18px; line-height: 1.8;
+  }
+  .conclusion-box p:last-child { margin-bottom: 0; }
+  .conclusion-final {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-style: italic;
+    color: var(--gold-light) !important; margin-top: 1rem !important;
+  }
+
+  .article-footer {
+    border-top: 1px solid var(--green-accent); margin-top: 4rem; padding-top: 2.5rem;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+  }
+  .author-block { display: flex; align-items: center; gap: 12px; }
+  .author-initials {
+    width: 48px; height: 48px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 14px; color: var(--green-deep); font-weight: 600;
+  }
+  .author-name { font-family: 'Cinzel', serif; font-size: 13px; color: var(--cream); letter-spacing: 1px; }
+  .author-title { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .back-btn {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--gold); text-decoration: none;
+    border: 1px solid var(--gold); padding: 10px 22px; transition: all .2s;
+  }
+  .back-btn:hover { background: var(--gold); color: var(--green-deep); }
+
+  .cta-strip {
+    background: var(--green-mid); border-top: 3px solid var(--gold);
+    padding: 3rem 2.5rem; text-align: center;
+  }
+  .cta-strip h3 {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .cta-strip p { font-size: 16px; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .cta-btn {
+    display: inline-block; background: var(--gold); color: var(--green-deep);
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 13px 32px; text-decoration: none;
+    font-weight: 600; transition: background .2s;
+  }
+  .cta-btn:hover { background: var(--gold-light); }
+
+  footer {
+    background: var(--green-deep); border-top: 1px solid var(--green-accent);
+    padding: 1.5rem 2.5rem; display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-name { font-family: 'Cinzel', serif; font-size: 12px; color: var(--gold); letter-spacing: 1px; }
+  .footer-copy { font-family: 'Cinzel', serif; font-size: 11px; color: var(--green-accent); }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 10px; }
+    .article-hero { padding: 3.5rem 1.25rem 3rem; }
+    .article-wrapper { padding: 2.5rem 1.25rem 3.5rem; }
+    .article-footer { flex-direction: column; }
+    .chapter-header { flex-direction: column; align-items: flex-start; gap: .5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-seal">RC</div>
+    <span class="nav-title">The Remnant Chronicles</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">The Writings</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-label"><span>The Remnant Chronicles &nbsp;·&nbsp; Vol. IV</span></div>
+  <h1>The Price of the Pint</h1>
+  <h2>A Spiritual Warning on the Plasma Industry</h2>
+  <div class="hero-divider"></div>
+  <div class="article-meta">
+    <span>By Jimey Grant</span>
+    <span>Lafayette, Louisiana</span>
+    <span>Case Study Chronicle</span>
+  </div>
+</header>
+
+<main class="article-wrapper">
+
+  <p class="article-intro">
+    We are not merely looking at a medical transaction. We are investigating a spiritual ecosystem where the physical and the occult are inextricably linked.
+  </p>
+
+  <div class="article-body">
+
+    <p>
+      In this case study, we examine the hidden spiritual mechanics behind the multi-billion dollar blood and plasma industry — a sector that disproportionately thrives in zones of "perpetual poverty." While the secular world views these clinics as mere medical facilities, a higher level of spiritual intelligence reveals a more complex narrative of life-force extraction and ritualistic vulnerability. By analyzing these systems alongside biblical mandates for discernment, this study aims to wake up the believer to the reality of the systemic devices of the adversary.
+    </p>
+
+    <div class="chapter-header">
+      <span class="chapter-num">Chapter 1</span>
+      <span class="chapter-title">The Courtroom of the Covenant</span>
+    </div>
+
+    <h4>What Is Blood from a Spiritual Perspective?</h4>
+
+    <p>
+      Blood is a spiritual portal — a means of transportation for demonic spirits to cross over from the spiritual realm into the natural. We see instances in the Bible where blood is used as atonement for sins under the Old Testament, as well as for occult practices in 1 Kings 18:28 with the false prophets of Baal.
+    </p>
+
+    <p>
+      In the realms of witchcraft and darker spiritualities, blood serves as the ultimate currency for forging covenants with the demonic. Such rituals may promise a swift rise to power or prosperity, but these gains are always shadowed by an eventual, devastating cost. Much like a legal document, a blood covenant has a terminal clause. When the contract expires, the collection begins. The price of such a pact is often staggering — demanding the life of a loved one, a child, or ultimately, the soul itself. This "spiritual legality" is precisely why breaking free from witchcraft and black magic is so hard: it is not merely an influence to be shed, but a binding legal contract that must be formally annulled.
+    </p>
+
+    <h4>The Judicial Reality of the Spirit</h4>
+
+    <div class="legal-box">
+      <div class="legal-label">Spiritual Legal Framework</div>
+      <p>The spiritual realm functions as a high-stakes judicial system, governed by the immutable laws of the God of Israel. The adversary — identified as the "accuser of the brethren" in Revelation 12:10 — serves as a relentless prosecutor, seeking to secure convictions against the righteous by identifying points of spiritual and moral liability.</p>
+      <p>When an individual enters into a covenant with the kingdom of darkness, the adversary presents that contract as legal evidence before the throne of God. Because God is inherently faithful to His decrees and His word cannot return void (Isaiah 55:11), He is legally bound to honor the validity of a contract entered into by an agent of free will.</p>
+    </div>
+
+    <p>
+      These demonic contracts are rarely limited to the individual; they are structured with lineage-based liabilities that permit Satan to operate within a family bloodline. As established in Deuteronomy 5:9 and Exodus 20:5, these spiritual agreements often carry stipulations that remain legally enforceable for up to four generations — creating a cycle of generational liability where the actions of a forefather provide the legal grounds for the adversary to maintain a claim over a bloodline long after the original contract was signed.
+    </p>
+
+    <div class="chapter-header">
+      <span class="chapter-num">Chapter 2</span>
+      <span class="chapter-title">Identifying the Breach</span>
+    </div>
+
+    <h4>The Spiritual Reality of the Harvesting Station</h4>
+
+    <p>
+      Through the lens of spiritual discernment, we must recognize that the plasma clinic is often a mirrored version of an altar. Under the law of the mimic, we understand that Satan is not a creator, but a master of the counterfeit who simply mirrors the kingdom of heaven with his own kingdom of darkness. This spiritual symmetry is seen in every practice: where Christians have altars, witches have altars; where Christians pray and fast, witches pray and fast; and just as Jesus has disciples, Satan has his own disciples as well. Holy Spirit-filled Christians "plead the blood of Jesus" to dismantle demonic forces — witches and satanic agents enter into blood covenants and perform blood sacrifices to Lucifer to strengthen their demonic altars.
+    </p>
+
+    <h4>The Observation of the "Witch in the Clinic"</h4>
+
+    <p>
+      When we look at the concentration of plasma centers, we aren't just looking at medical facilities; we are looking at spiritual harvesting stations. Just as the Bible reminds us in Leviticus 17:11 that life is in the blood, the adversary knows that to control the blood is to control the portal.
+    </p>
+
+    <p>
+      Most people walk into a clinic seeing only a technician and the chance to make a few dollars, but spiritual discernment reveals that many of these environments are staffed by those who understand the occult value of what is being drawn. Just as a Holy Spirit-filled Christian uses the spiritual blood of Jesus for protection, these satanic agents use the physical extraction of body fluids to fuel their own dark, demonic altars. Read Leviticus 17:11 in its entirety.
+    </p>
+
+    <p>
+      To the untrained eye, you may believe you are performing a good deed by saving lives — however, by donating blood, you are literally sacrificing your life-force. It gets even deeper when the phlebotomy technician performing your donation operates within the occult. When viewed through a spiritual lens, that donation is instantly transformed into a ritual.
+    </p>
+
+    <scripture-block>
+    </scripture-block>
+
+    <div class="scripture-block">
+      <div class="scripture-ref">2 Corinthians 2:11</div>
+      <p>In the regular Christian church, we are not often taught to look at things through this lens — the result of spiritual ignorance and a lack of discernment. As a result, Satan capitalizes by keeping people spiritually bound. Satan is a spiritual legalist. He knows the Bible back and forth, and he will capitalize where we fall short. That is why Paul tells us we are not to be ignorant of Satan's devices.</p>
+    </div>
+
+    <div class="chapter-header">
+      <span class="chapter-num">Chapter 3</span>
+      <span class="chapter-title">The Verdict of Spilt Blood</span>
+    </div>
+
+    <p>
+      Have you noticed that the majority of people who donate plasma are either homeless, suffering from extreme financial crises, or use the funds from their donation to support a drug or alcohol addiction? I'm not saying everyone who donates is in these impoverished states — but most are, and here is the explanation rooted in Chapter 1: blood is a form of a spiritual contract, and when you treat it carelessly, the spiritual consequences are severe.
+    </p>
+
+    <div class="verdict-block">
+      <div class="verdict-label">Genesis 4 · The Cost of Spilt Blood</div>
+      <p>"What have you done? Listen! Your brother's blood cries out to me from the ground." — Genesis 4:10</p>
+    </div>
+
+    <p>
+      In Genesis 4:9, the Lord asked Cain, "Where is your brother Abel?" Cain responded, "I don't know — am I my brother's keeper?" The Lord immediately replied: "Your brother's blood cries out to Me from the ground." Right here we see that blood is alive — a living force with a voice in the spiritual realm.
+    </p>
+
+    <p>
+      Then comes the punishment. In Genesis 4:11, the Lord says to Cain: "Now you are under a curse." The result of spilling blood is a curse. So now is it made plain why the people that frequent these labs and clinics are in the perpetual state that they are in — they are bound spiritually as a result of each donation. The Lord can shine grace on the person in bondage and deliver them from the curse of addiction and poverty, but it requires hitting ultimate rock bottom and coming to the realization that there is nothing they can do without the blood of Jesus to help them overcome.
+    </p>
+
+    <div class="conclusion-box">
+      <h3>The Clarion Call: A Final Warning and Way Out</h3>
+      <p>
+        We can no longer afford to walk through these clinics with our eyes closed. The "price of the pint" is far steeper than the few dollars in your pocket — it is a spiritual trade that gives the adversary a voice against your very life.
+      </p>
+      <p>
+        But there is a way out. By recognizing these devices and repenting for the moments we acted in spiritual ignorance, we can finally silence the cry of the harvested blood. It is time to stop feeding the counterfeit altars and start standing on the finished work of the blood of Jesus — the only blood that speaks life where the enemy spoke a curse.
+      </p>
+      <p class="conclusion-final">
+        Wake up. Discern the atmosphere. Refuse to let your life-force be used as a ritual for the kingdom of darkness.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="author-block">
+      <div class="author-initials">JG</div>
+      <div>
+        <div class="author-name">Jimey Grant</div>
+        <div class="author-title">The Remnant Chronicles &nbsp;·&nbsp; Lafayette, Louisiana</div>
+      </div>
+    </div>
+    <a href="index.html" class="back-btn">← All Chronicles</a>
+  </div>
+
+</main>
+
+<section class="cta-strip">
+  <h3>Commission a Work</h3>
+  <p>Strategic writing infused with doctrinal analysis and scriptural precision.</p>
+  <a href="services.html" class="cta-btn">View Services</a>
+</section>
+
+<footer>
+  <span class="footer-name">Jimey Grant &nbsp;·&nbsp; The Remnant Chronicles</span>
+  <span class="footer-copy">© 2026 All Rights Reserved</span>
+</footer>
+
+</body>
+</html>

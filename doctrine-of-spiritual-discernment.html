@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Doctrine of Spiritual Discernment | The Remnant Chronicles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0f2219;
+    --green-dark: #152e21;
+    --green-mid: #1a3a2a;
+    --green-rich: #1e4432;
+    --green-accent: #2a5c40;
+    --gold: #C9941A;
+    --gold-light: #e0ac3a;
+    --gold-pale: #f0d080;
+    --cream: #f0ead8;
+    --cream-muted: #c8bfa8;
+    --text-body: #d8cdb8;
+    --text-muted: #8aaa90;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--green-deep);
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.85;
+  }
+
+  nav {
+    background: var(--green-deep);
+    border-bottom: 1px solid var(--gold);
+    padding: 0 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-seal {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 12px; font-weight: 600;
+    color: var(--green-deep);
+    letter-spacing: 1px;
+  }
+  .nav-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .article-hero {
+    background: var(--green-rich);
+    border-bottom: 3px solid var(--gold);
+    padding: 5rem 2.5rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .article-hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: var(--green-accent);
+    opacity: .3;
+  }
+  .article-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: var(--green-accent);
+    opacity: .2;
+  }
+  .article-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+  .article-label span {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    padding: 4px 16px;
+  }
+  .article-hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(28px, 4.5vw, 50px);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: .75rem;
+    position: relative;
+  }
+  .article-hero h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .hero-divider {
+    width: 80px; height: 3px;
+    background: var(--gold);
+    margin: 0 auto 2rem;
+    position: relative;
+  }
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .article-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 4rem 2rem 5rem;
+  }
+
+  .article-intro {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--cream-muted);
+    line-height: 1.7;
+    border-left: 3px solid var(--gold);
+    padding-left: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .article-body p {
+    margin-bottom: 1.5rem;
+    color: var(--text-body);
+  }
+
+  .article-body > p:first-of-type::first-letter {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--gold);
+    float: left;
+    line-height: .8;
+    margin: 8px 12px 0 0;
+  }
+
+  .office-block {
+    border-left: 3px solid var(--gold);
+    background: var(--green-rich);
+    margin: 2.5rem 0;
+    padding: 1.75rem 2rem;
+  }
+  .office-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: .25rem;
+  }
+  .office-subtitle {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+  .office-block p {
+    margin: 0;
+    color: var(--text-body);
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .scripture-ref {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: .5rem;
+  }
+
+  blockquote {
+    background: var(--green-rich);
+    border-left: 4px solid var(--gold);
+    margin: 2.5rem 0;
+    padding: 1.5rem 1.75rem;
+  }
+  blockquote p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: var(--cream);
+    margin: 0 !important;
+    line-height: 1.6;
+  }
+
+  .section-rule {
+    width: 100%;
+    height: 1px;
+    background: var(--green-accent);
+    margin: 3rem 0;
+  }
+
+  .conclusion-box {
+    background: var(--green-rich);
+    border: 1px solid var(--gold);
+    padding: 2rem 2.25rem;
+    margin: 3rem 0 0;
+  }
+  .conclusion-box h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .conclusion-box p {
+    color: var(--cream-muted);
+    margin-bottom: 1rem;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+  .conclusion-box p:last-child { margin-bottom: 0; }
+  .conclusion-final {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--gold-light) !important;
+    margin-top: 1rem !important;
+  }
+
+  .article-footer {
+    border-top: 1px solid var(--green-accent);
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .author-block { display: flex; align-items: center; gap: 12px; }
+  .author-initials {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--green-deep);
+    font-weight: 600;
+  }
+  .author-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--cream);
+    letter-spacing: 1px;
+  }
+  .author-title {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .back-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    padding: 10px 22px;
+    transition: all .2s;
+  }
+  .back-btn:hover { background: var(--gold); color: var(--green-deep); }
+
+  .cta-strip {
+    background: var(--green-mid);
+    border-top: 3px solid var(--gold);
+    padding: 3rem 2.5rem;
+    text-align: center;
+  }
+  .cta-strip h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .5rem;
+  }
+  .cta-strip p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--green-deep);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 13px 32px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background .2s;
+  }
+  .cta-btn:hover { background: var(--gold-light); }
+
+  footer {
+    background: var(--green-deep);
+    border-top: 1px solid var(--green-accent);
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+  .footer-copy {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--green-accent);
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 10px; }
+    .article-hero { padding: 3.5rem 1.25rem 3rem; }
+    .article-wrapper { padding: 2.5rem 1.25rem 3.5rem; }
+    .article-footer { flex-direction: column; }
+    .office-block { padding: 1.25rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-seal">RC</div>
+    <span class="nav-title">The Remnant Chronicles</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">The Writings</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-label"><span>The Remnant Chronicles &nbsp;·&nbsp; Vol. I</span></div>
+  <h1>The Doctrine of Spiritual Discernment</h1>
+  <h2>Five-Fold Governance and the Guarding of the Fold</h2>
+  <div class="hero-divider"></div>
+  <div class="article-meta">
+    <span>By Jimey Grant</span>
+    <span>Lafayette, Louisiana</span>
+    <span>Doctrinal Chronicle</span>
+  </div>
+</header>
+
+<main class="article-wrapper">
+
+  <p class="article-intro">
+    The entry into five-fold ministry must be governed by strict spiritual vetting rather than a mere profession of faith. A gift or a calling is not a license — it does not automatically grant an individual the right to operate within the Body of Christ.
+  </p>
+
+  <div class="article-body">
+
+    <p>
+      According to 1 John 4:1, believers are commanded not to believe every spirit, but to test them. True spiritual discernment requires a period of observation. Individuals must attend the assembly consistently before being permitted to join a specific ministry. Once a Pastor discerns a calling, that believer's humility must be tested in the crucible of service — starting with the cleaning crew or the greeting staff. This patience is vital. The Pastor, as the shepherd, is responsible for the souls of the flock and must guard against "wolves" or demonic agents who seek to smite the shepherd and scatter the sheep (Zechariah 13:7).
+    </p>
+
+    <p>
+      We must recognize that the "spirit of Jezebel" is a religious spirit. Just as darkness masks itself as light, "Lucifer the light-bearer" — spiritual gifts can operate entirely apart from the Holy Spirit. As Romans 11:29 notes, the gifts and callings of God are without repentance. Therefore, the true evidence of transformation is not the gift, but the "fruit" of a disciplined lifestyle. The modern "come as you are" attitude often lacks this discernment, potentially inviting bad actors or spiritual subversives — not just into the congregation, but into the pulpit. To effectively herd the sheep in this hour, the church must prioritize discernment over a false sense of welcoming.
+    </p>
+
+    <div class="section-rule"></div>
+
+    <div class="office-block">
+      <div class="office-title">The Apostle</div>
+      <div class="office-subtitle">The Governmental Architect</div>
+      <p>The Apostle is the spiritual architect and pioneer, tasked with laying firm foundations and expanding the Kingdom's reach. Rather than being tethered to the daily administrative or financial maintenance of a local building, the Apostle is "sent forth" to establish divine order and ensure alignment with sound biblical doctrine. They function as a "master builder," overseeing the structural integrity of the faith across multiple congregations. As a navigator and spiritual father or mother, the Apostle focuses on the "DNA" of the mission — mentoring leaders and ensuring the church operates according to a heavenly blueprint.</p>
+    </div>
+
+    <div class="office-block">
+      <div class="office-title">The Pastor</div>
+      <div class="office-subtitle">The Shepherd and Gatekeeper</div>
+      <p>The Pastor is the heart and overseer of the local body. In this governmental model, the Pastor serves as the primary gatekeeper, utilizing deep discernment to vet anyone seeking to function within the assembly. It is the Pastor's duty to observe the "fruit" of a believer's life over time, ensuring character precedes platform. By testing newcomers in humble service roles, the Pastor guards the flock from internal and external threats, ensuring the sheep are nurtured, disciplined, and safe.</p>
+    </div>
+
+    <div class="office-block">
+      <div class="office-title">The Prophet</div>
+      <div class="office-subtitle">The Spiritual Intelligence</div>
+      <p>The Prophet serves as the "eyes and ears" of the Body, functioning as the vital link between the heart of God and the ears of the people. Their responsibility is to provide immediate, revelatory insight regarding God's timing and will. Rather than focusing on "bricks and mortar," the Prophet focuses on spiritual alignment — sensing atmospheric shifts and identifying hidden obstacles. As a spiritual compass, they call the church back to holiness and play a crucial role in activating the latent potential and callings within individual believers.</p>
+    </div>
+
+    <div class="office-block">
+      <div class="office-title">The Teacher</div>
+      <div class="office-subtitle">The Discipleship Bridge</div>
+      <p>The Teacher is the "decoder" of the five-fold, responsible for the long-term building of the saints. Their role is to take the deep, often "raw" revelations brought forth by the Prophet and translate them into sound, actionable doctrine. They ensure the congregation isn't just hearing words, but learning to apply the nature of Christ to daily habits. By grounding the people in the word, the Teacher protects the body from being led astray by <em>lights of darkness</em>, turning converts into mature believers and disciples who can stand firm.</p>
+    </div>
+
+    <div class="office-block">
+      <div class="office-title">The Evangelist</div>
+      <div class="office-subtitle">The Expansion Specialist</div>
+      <p>The Evangelist is the outward-facing arm of the ministry — a frontline soldier dedicated to winning souls. While the other offices focus on internal health and governance, the Evangelist is compelled to bring the "lost" into the fold. They provide the fresh "raw material" of new believers who are then handed over to be vetted, trained, and disciplined by the other offices. The Evangelist ensures the church remains a living, expanding movement rather than a stagnant institution.</p>
+    </div>
+
+    <div class="section-rule"></div>
+
+    <div class="conclusion-box">
+      <h3>Conclusion: The Unified Front of the Church</h3>
+      <p>
+        The five-fold ministry was never intended to function as a collection of independent titles, but as a cohesive governmental body designed to bring the saint into the "measure of the stature of the fullness of Christ." When the Apostle provides the blueprint, the Prophet provides the vision, the Evangelist brings the harvest, the Pastor guards the gate, and the Teacher builds the foundation, the result is an impenetrable fortress of faith.
+      </p>
+      <p>
+        However, this fortress is only as strong as its weakest entry point. The modern church must realize that an open door is not always an act of love; sometimes, it is an act of negligence. To welcome the wolf in the name of "inclusivity" is to betray the sheep in the name of "hospitality."
+      </p>
+      <p>
+        As we move forward in this hour, the mandate is clear: we must return to a model where character is the currency of the Kingdom. Let the gifts be seen, but let the fruit be tested. By restoring the doctrine of spiritual discernment and honoring the distinct boundaries of the five-fold offices, the Church ceases to be a social club and once again becomes a disciplined army — rightly aligned, spiritually secured, and ready to stand until Christ returns.
+      </p>
+      <p class="conclusion-final">
+        Let the gifts be seen. Let the fruit be tested.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="author-block">
+      <div class="author-initials">JG</div>
+      <div>
+        <div class="author-name">Jimey Grant</div>
+        <div class="author-title">The Remnant Chronicles &nbsp;·&nbsp; Lafayette, Louisiana</div>
+      </div>
+    </div>
+    <a href="index.html" class="back-btn">← All Chronicles</a>
+  </div>
+
+</main>
+
+<section class="cta-strip">
+  <h3>Commission a Work</h3>
+  <p>Strategic writing infused with doctrinal analysis and scriptural precision.</p>
+  <a href="services.html" class="cta-btn">View Services</a>
+</section>
+
+<footer>
+  <span class="footer-name">Jimey Grant &nbsp;·&nbsp; The Remnant Chronicles</span>
+  <span class="footer-copy">© 2026 All Rights Reserved</span>
+</footer>
+
+</body>
+</html>

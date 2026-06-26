@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commission a Work | The Remnant Chronicles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0f2219;
+    --green-dark: #152e21;
+    --green-mid: #1a3a2a;
+    --green-rich: #1e4432;
+    --green-accent: #2a5c40;
+    --gold: #C9941A;
+    --gold-light: #e0ac3a;
+    --cream: #f0ead8;
+    --cream-muted: #c8bfa8;
+    --text-body: #d8cdb8;
+    --text-muted: #8aaa90;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--green-deep);
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.85;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--green-deep);
+    border-bottom: 1px solid var(--gold);
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-seal {
+    width: 36px; height: 36px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600;
+    color: var(--green-deep); letter-spacing: 1px;
+  }
+  .nav-title { font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-family: 'Cinzel', serif; font-size: 11px; color: var(--text-muted);
+    text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a.active { color: var(--gold); }
+
+  /* HERO */
+  .page-hero {
+    background: var(--green-rich);
+    border-bottom: 3px solid var(--gold);
+    padding: 5rem 2.5rem 4rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: var(--green-accent); opacity: .3;
+  }
+  .page-hero::after {
+    content: ''; position: absolute; bottom: -60px; left: -40px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: var(--green-accent); opacity: .2;
+  }
+  .hero-label {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; position: relative;
+  }
+  .hero-label span { display: inline-block; border: 1px solid var(--gold); padding: 4px 16px; }
+  .page-hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(32px, 5vw, 54px); font-weight: 700;
+    color: #ffffff; line-height: 1.15; margin-bottom: .75rem; position: relative;
+  }
+  .page-hero p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(16px, 2.5vw, 21px); font-weight: 400;
+    font-style: italic; color: var(--gold-light);
+    max-width: 560px; margin: 0 auto; position: relative;
+  }
+  .hero-divider { width: 80px; height: 3px; background: var(--gold); margin: 2rem auto; position: relative; }
+
+  /* MAIN */
+  .payment-wrapper { max-width: 960px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+
+  .section-eyebrow {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 32px; font-weight: 700; color: #ffffff; margin-bottom: .5rem;
+  }
+  .section-rule { width: 40px; height: 3px; background: var(--gold); margin-bottom: 2.5rem; }
+
+  /* PAYMENT CARDS */
+  .payment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .payment-card {
+    background: var(--green-mid);
+    border: 0.5px solid var(--green-accent);
+    padding: 2rem;
+    display: flex; flex-direction: column;
+    transition: border-color .2s, background .2s;
+  }
+  .payment-card:hover { border-color: var(--gold); background: var(--green-rich); }
+
+  .payment-card.featured {
+    border: 1px solid var(--gold);
+    background: var(--green-rich);
+    position: relative;
+  }
+
+  .featured-tag {
+    position: absolute; top: -1px; right: 24px;
+    background: var(--gold); color: var(--green-deep);
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 4px 12px; font-weight: 600;
+  }
+
+  .card-icon {
+    width: 48px; height: 48px; border-radius: 8px;
+    background: var(--green-accent);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+  .card-icon svg {
+    width: 24px; height: 24px; stroke: var(--gold); fill: none;
+    stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  .card-name {
+    font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: .5rem;
+  }
+  .card-desc {
+    font-size: 15px; color: var(--text-muted); line-height: 1.75;
+    margin-bottom: 1.25rem; flex: 1;
+  }
+  .card-wordcount {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--green-accent); margin-bottom: 1.25rem;
+  }
+
+  .card-divider { width: 100%; height: 1px; background: var(--green-accent); margin-bottom: 1.25rem; }
+
+  .card-price-row {
+    display: flex; align-items: baseline; gap: .5rem; margin-bottom: 1.5rem;
+  }
+  .card-price {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 48px; font-weight: 700; color: var(--gold); line-height: 1;
+  }
+  .card-price-label {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--text-muted);
+  }
+
+  .card-features { margin-bottom: 1.75rem; }
+  .card-feature {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 14px; color: var(--cream-muted); line-height: 1.6; margin-bottom: .4rem;
+  }
+  .card-feature svg {
+    width: 14px; height: 14px; flex-shrink: 0; margin-top: 4px;
+    stroke: var(--gold); fill: none; stroke-width: 2.5;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  .pay-btn {
+    display: block; text-align: center;
+    background: var(--gold); color: var(--green-deep);
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 14px 24px; text-decoration: none;
+    font-weight: 600; transition: background .2s; margin-top: auto;
+  }
+  .pay-btn:hover { background: var(--gold-light); }
+
+  .pay-btn.outline {
+    background: transparent; border: 1px solid var(--gold); color: var(--gold);
+  }
+  .pay-btn.outline:hover { background: var(--gold); color: var(--green-deep); }
+
+  /* BUNDLE CARD SPECIAL */
+  .bundle-savings {
+    display: inline-block;
+    background: var(--green-accent); color: var(--gold-light);
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 3px 10px; margin-bottom: 1rem;
+  }
+
+  /* DEPOSIT NOTICE */
+  .deposit-notice {
+    background: var(--green-rich); border-left: 4px solid var(--gold);
+    padding: 1.5rem 1.75rem; margin-bottom: 4rem;
+  }
+  .deposit-notice-label {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .deposit-notice p {
+    font-size: 16px; color: var(--cream-muted); line-height: 1.75; margin: 0;
+  }
+
+  /* HOW IT WORKS */
+  .how-section { margin-bottom: 4rem; }
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  .step-card {
+    background: var(--green-mid); border: 0.5px solid var(--green-accent); padding: 1.75rem;
+  }
+  .step-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 48px; font-weight: 700; color: var(--gold);
+    opacity: .4; line-height: 1; margin-bottom: .5rem;
+  }
+  .step-title {
+    font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--cream); margin-bottom: .5rem;
+  }
+  .step-desc { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+
+  /* STRIPE BADGE */
+  .stripe-badge {
+    text-align: center; margin-bottom: 4rem;
+    padding: 1.5rem; background: var(--green-mid);
+    border: 0.5px solid var(--green-accent);
+  }
+  .stripe-badge p {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--text-muted); margin-bottom: .5rem;
+  }
+  .stripe-badge-icons {
+    display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+  }
+  .stripe-item {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--text-muted);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .stripe-item svg {
+    width: 16px; height: 16px; stroke: var(--gold); fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--green-deep); border-top: 1px solid var(--green-accent);
+    padding: 1.5rem 2.5rem; display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-name { font-family: 'Cinzel', serif; font-size: 12px; color: var(--gold); letter-spacing: 1px; }
+  .footer-copy { font-family: 'Cinzel', serif; font-size: 11px; color: var(--green-accent); }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 10px; }
+    .page-hero { padding: 3.5rem 1.25rem 3rem; }
+    .payment-wrapper { padding: 2.5rem 1.25rem 3.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-seal">RC</div>
+    <span class="nav-title">The Remnant Chronicles</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">The Writings</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="hero-label"><span>The Remnant Chronicles</span></div>
+  <h1>Commission a Work</h1>
+  <div class="hero-divider"></div>
+  <p>Select your service below and complete your deposit to initiate your project. All payments are processed securely through Stripe.</p>
+</header>
+
+<main class="payment-wrapper">
+
+  <!-- PAYMENT CARDS -->
+  <section style="margin-bottom: 2rem;">
+    <div class="section-eyebrow">Select a Service</div>
+    <div class="section-title">Choose Your Project</div>
+    <div class="section-rule"></div>
+
+    <div class="payment-grid">
+
+      <!-- Articles & Features -->
+      <div class="payment-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+        </div>
+        <div class="card-name">Articles &amp; Features</div>
+        <div class="card-desc">High-retention storytelling and long-form pieces crafted for digital and print platforms. Built to engage, inform, and endure.</div>
+        <div class="card-wordcount">750–1,000 words</div>
+        <div class="card-divider"></div>
+        <div class="card-price-row">
+          <span class="card-price">$150</span>
+          <span class="card-price-label">flat rate</span>
+        </div>
+        <div class="card-features">
+          <div class="card-feature"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Two rounds of revisions included</div>
+          <div class="card-feature"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>50% deposit initiates the project</div>
+          <div class="card-feature"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Balance due upon delivery</div>
+        </div>
+        <a href="https://buy.stripe.com/3cI28r19keRz8BSaLn5gc03" class="pay-btn outline" target="_blank">Pay Deposit — $75</a>
+      </div>
+
+      <!-- Executive Briefs & Op-Eds -->
+      <div class="payment-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="card-name">Executive Briefs &amp; Op-Eds</div>
+        <div class="card-desc">Strategic thought-leadership pieces focused on growth, resilience, and community impact — written with authority and clarity.</div>
+        <div class="card-wordcount">750–1,000 words</div>
+        <div class="card-divider"></div>
+        <div class="card-price-row">
+          <span class="card-price">$150</span>
+          <span class="card-price-label">flat rate</span>
+        </div>
+        <div class="card-features">
+          <div class="card-feature"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Two rounds of revisions included</div>
+          <div class="card-feature"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>50% deposit initiates the project</div>
+          <div class="card-feature"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Balance due upon delivery</div>
+        </div>
+        <a href="https://buy.stripe.com/8x2aEX5pAgZHf0g8Df5gc02" class="pay-btn outline" target="_blank">Pay Deposit — $75</a>
+      </div>
+
+      <!-- Strategic Deep-Dives -->
+      <div class="payment-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div class="card-name">Strategic Deep-Dives</div>
+        <div class="card-desc">Comprehensive, research-heavy biblical analysis to ground your organization's doctrine and mission with scriptural precision.</div>
+        <div class="card-wordcount">750–1,000 words</div>
+        <div class="card-divider"></div>
+        <div class="card-price-row">
+          <span class="card-price">$150</span>
+          <span class="card-price-label">flat rate</span>
+        </div>
+        <div class="card-features">
+          <div class="card-feature"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Two rounds of revisions included</div>
+          <div class="card-feature"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>50% deposit initiates the project</div>
+          <div class="card-feature"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Balance due upon delivery</div>
+        </div>
+        <a href="https://buy.stripe.com/14AaEX5pA4cV7xO06J5gc01" class="pay-btn outline" target="_blank">Pay Deposit — $75</a>
+      </div>
+
+      <!-- 3-Project Bundle -->
+      <div class="payment-card featured">
+        <div class="featured-tag">Best Value</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="bundle-savings">Save 10% &nbsp;·&nbsp; $135 per project</div>
+        <div class="card-name">3-Project Bundle</div>
+        <div class="card-desc">Three full writing projects at the discounted rate. Same precision, same quality, same turnaround — at a better investment.</div>
+        <div class="card-wordcount">3 × 750–1,000 words</div>
+        <div class="card-divider"></div>
+        <div class="card-price-row">
+          <span class="card-price">$405</span>
+          <span class="card-price-label">bundle total</span>
+        </div>
+        <div class="card-features">
+          <div class="card-feature"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Three projects at $135 each</div>
+          <div class="card-feature"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Revisions included on all three</div>
+          <div class="card-feature"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Limit: one bundle per week</div>
+          <div class="card-feature"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>50% deposit initiates all projects</div>
+        </div>
+        <a href="https://buy.stripe.com/eVq00jcS27p75pG9Hj5gc00" class="pay-btn" target="_blank">Pay Deposit — $202.50</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DEPOSIT NOTICE -->
+  <div class="deposit-notice">
+    <div class="deposit-notice-label">Important — Deposit Policy</div>
+    <p>A 50% non-refundable deposit is required to secure your project date and initiate the research phase. The remaining balance is due upon delivery of your completed draft. By submitting your deposit you agree to the engagement terms of The Remnant Chronicles.</p>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-eyebrow">The Process</div>
+    <div class="section-title">How It Works</div>
+    <div class="section-rule"></div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Select & Pay Deposit</div>
+        <div class="step-desc">Choose your service above and complete your 50% deposit securely through Stripe. You will receive a confirmation immediately.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Project Briefing</div>
+        <div class="step-desc">After your deposit is received, you will be contacted to provide your project details, topic, and any specific direction or requirements.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Research & Writing</div>
+        <div class="step-desc">Your project enters the research and writing phase immediately. Every piece is crafted with scriptural precision and strategic intent.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-title">Delivery & Revisions</div>
+        <div class="step-desc">Your completed draft is delivered along with an invoice for the remaining balance. Two rounds of revisions are included at no additional cost.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIPE SECURITY BADGE -->
+  <div class="stripe-badge">
+    <p>Payments Secured By</p>
+    <div class="stripe-badge-icons">
+      <span class="stripe-item">
+        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Stripe Secure Checkout
+      </span>
+      <span class="stripe-item">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        SSL Encrypted
+      </span>
+      <span class="stripe-item">
+        <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        All Major Cards Accepted
+      </span>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span class="footer-name">Jimey Grant &nbsp;·&nbsp; The Remnant Chronicles</span>
+  <span class="footer-copy">&copy; 2026 All Rights Reserved</span>
+</footer>
+
+</body>
+</html>
