@@ -85,7 +85,15 @@
     color: var(--gold-light); max-width: 600px;
     margin: 0 auto 1.75rem; position: relative; line-height: 1.5;
   }
-  .article-divider { width: 80px; height: 3px; background: var(--gold); margin: 0 auto; position: relative; }
+  .article-divider { width: 80px; height: 3px; background: var(--gold); margin: 0 auto 1.75rem; position: relative; }
+  .article-byline {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.5rem; flex-wrap: wrap; position: relative;
+  }
+  .article-byline span {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--text-muted);
+  }
 
   /* ARTICLE BODY */
   .article-body {
@@ -178,10 +186,15 @@
 
 <!-- ARTICLE HEADER -->
 <header class="article-header">
-  <div class="article-vol"><span>The Remnant Chronicles &nbsp;·&nbsp; Vol. XIII</span></div>
+  <div class="article-vol"><span>The Remnant Chronicles &nbsp;·&nbsp; Vol. IX</span></div>
   <h1>The Divine Mission: Marriage as a Covenant, Not a Contract</h1>
   <p class="article-subtitle">The Gospel Lived Out in Union</p>
   <div class="article-divider"></div>
+  <div class="article-byline">
+    <span>By Jimey Grant</span>
+    <span>Lafayette, Louisiana</span>
+    <span>Doctrinal Chronicle</span>
+  </div>
 </header>
 
 <!-- ARTICLE BODY -->
