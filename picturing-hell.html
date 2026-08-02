@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Picturing Hell | The Remnant Chronicles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0f2219;
+    --green-dark: #152e21;
+    --green-mid: #1a3a2a;
+    --green-rich: #1e4432;
+    --green-accent: #2a5c40;
+    --gold: #C9941A;
+    --gold-light: #e0ac3a;
+    --cream: #f0ead8;
+    --cream-muted: #c8bfa8;
+    --text-body: #d8cdb8;
+    --text-muted: #8aaa90;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--green-deep);
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.85;
+  }
+
+  nav {
+    background: var(--green-deep);
+    border-bottom: 1px solid var(--gold);
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-seal {
+    width: 36px; height: 36px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600;
+    color: var(--green-deep); letter-spacing: 1px;
+  }
+  .nav-title { font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-family: 'Cinzel', serif; font-size: 11px; color: var(--text-muted);
+    text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .article-hero {
+    background: var(--green-rich); border-bottom: 3px solid var(--gold);
+    padding: 5rem 2.5rem 4rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .article-hero::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: var(--green-accent); opacity: .3;
+  }
+  .article-hero::after {
+    content: ''; position: absolute; bottom: -60px; left: -40px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: var(--green-accent); opacity: .2;
+  }
+  .article-label {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; position: relative;
+  }
+  .article-label span { display: inline-block; border: 1px solid var(--gold); padding: 4px 16px; }
+  .article-hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(32px, 5vw, 54px); font-weight: 700;
+    color: #ffffff; line-height: 1.15; margin-bottom: .75rem; position: relative;
+  }
+  .article-hero h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(16px, 2.5vw, 22px); font-weight: 400;
+    font-style: italic; color: var(--gold-light); margin-bottom: 2rem; position: relative;
+  }
+  .hero-divider { width: 80px; height: 3px; background: var(--gold); margin: 0 auto 2rem; position: relative; }
+  .article-meta {
+    display: flex; align-items: center; justify-content: center; gap: 2rem;
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px;
+    color: var(--text-muted); text-transform: uppercase; position: relative; flex-wrap: wrap;
+  }
+
+  .article-wrapper { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+
+  .article-intro {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px; font-style: italic; color: var(--cream-muted);
+    line-height: 1.7; border-left: 3px solid var(--gold);
+    padding-left: 1.5rem; margin-bottom: 3rem;
+  }
+
+  .article-body p { margin-bottom: 1.5rem; color: var(--text-body); }
+
+  .article-body > p:first-of-type::first-letter {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 72px; font-weight: 700; color: var(--gold);
+    float: left; line-height: .8; margin: 8px 12px 0 0;
+  }
+
+  .section-head {
+    font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600;
+    color: var(--gold); letter-spacing: 2px; text-transform: uppercase;
+    margin: 3rem 0 1.25rem; padding-bottom: .75rem;
+    border-bottom: 1px solid var(--green-accent);
+  }
+
+  .escape-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--green-accent); margin: 2rem 0;
+  }
+  .escape-card { background: var(--green-rich); padding: 1.5rem; }
+  .escape-label {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .escape-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 17px; font-weight: 600; color: var(--cream); margin-bottom: .6rem;
+  }
+  .escape-card p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin: 0; }
+  .escape-card.true { border-top: 3px solid var(--gold); }
+  .escape-card.false { border-top: 3px solid #4a3a2a; }
+
+  .scripture-block {
+    background: var(--green-rich); border-left: 4px solid var(--gold);
+    padding: 1.5rem 1.75rem; margin: 2rem 0;
+  }
+  .scripture-ref {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .scripture-block p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-style: italic; color: var(--cream);
+    line-height: 1.65; margin: 0 !important;
+  }
+
+  .question-box {
+    border: 1px solid var(--gold); background: var(--green-rich);
+    padding: 1.75rem 2rem; margin: 2rem 0; text-align: center;
+  }
+  .question-box p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px; font-style: italic; color: var(--cream);
+    line-height: 1.6; margin: 0 !important;
+  }
+
+  .answer-box {
+    background: var(--green-rich); border-top: 3px solid var(--gold);
+    padding: 1.75rem 2rem; margin: 2rem 0;
+  }
+  .answer-label {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .75rem;
+  }
+  .answer-box p {
+    font-size: 17px; color: var(--cream-muted); line-height: 1.8; margin: 0;
+  }
+
+  .section-rule { width: 100%; height: 1px; background: var(--green-accent); margin: 2.5rem 0; }
+
+  .conclusion-box {
+    background: var(--green-rich); border: 1px solid var(--gold);
+    padding: 2rem 2.25rem; margin: 3rem 0 0;
+  }
+  .conclusion-box h3 {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .conclusion-box p {
+    color: var(--cream-muted); margin-bottom: 1rem; font-size: 18px; line-height: 1.8;
+  }
+  .conclusion-box p:last-child { margin-bottom: 0; }
+  .conclusion-final {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-style: italic;
+    color: var(--gold-light) !important; margin-top: 1rem !important;
+  }
+
+  .article-footer {
+    border-top: 1px solid var(--green-accent); margin-top: 4rem; padding-top: 2.5rem;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+  }
+  .author-block { display: flex; align-items: center; gap: 12px; }
+  .author-initials {
+    width: 48px; height: 48px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 14px; color: var(--green-deep); font-weight: 600;
+  }
+  .author-name { font-family: 'Cinzel', serif; font-size: 13px; color: var(--cream); letter-spacing: 1px; }
+  .author-title { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .back-btn {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--gold); text-decoration: none;
+    border: 1px solid var(--gold); padding: 10px 22px; transition: all .2s;
+  }
+  .back-btn:hover { background: var(--gold); color: var(--green-deep); }
+
+  .cta-strip {
+    background: var(--green-mid); border-top: 3px solid var(--gold);
+    padding: 3rem 2.5rem; text-align: center;
+  }
+  .cta-strip h3 {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .cta-strip p { font-size: 16px; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .cta-btn {
+    display: inline-block; background: var(--gold); color: var(--green-deep);
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 13px 32px; text-decoration: none;
+    font-weight: 600; transition: background .2s;
+  }
+  .cta-btn:hover { background: var(--gold-light); }
+
+  footer {
+    background: var(--green-deep); border-top: 1px solid var(--green-accent);
+    padding: 1.5rem 2.5rem; display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-name { font-family: 'Cinzel', serif; font-size: 12px; color: var(--gold); letter-spacing: 1px; }
+  .footer-copy { font-family: 'Cinzel', serif; font-size: 11px; color: var(--green-accent); }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 10px; }
+    .article-hero { padding: 3.5rem 1.25rem 3rem; }
+    .article-wrapper { padding: 2.5rem 1.25rem 3.5rem; }
+    .escape-grid { grid-template-columns: 1fr; }
+    .article-footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-seal">RC</div>
+    <span class="nav-title">The Remnant Chronicles</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">The Writings</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-label"><span>The Remnant Chronicles &nbsp;·&nbsp; Vol. XIII</span></div>
+  <h1>Picturing Hell</h1>
+  <h2>A Walk Through the Place Christ Died to Save You From</h2>
+  <div class="hero-divider"></div>
+  <div class="article-meta">
+    <span>By Jimey Grant</span>
+    <span>Lafayette, Louisiana</span>
+    <span>Doctrinal Chronicle</span>
+  </div>
+</header>
+
+<main class="article-wrapper">
+
+  <p class="article-intro">
+    Nothing is hidden from God — not even the place of the dead. It is the place Christ Himself warned of, wept over, and died to save you from.
+  </p>
+
+  <div class="article-body">
+
+    <div class="section-head">Why This Matters</div>
+
+    <p>
+      Modern churches seem not to teach on hell. Nor do they pull scriptures that deal with hell. I believe that the body of Christ has been reduced significantly to just faith, grace, love your neighbor, financial blessings, and what God can do for us. We can't be scared of anything we don't know about. Learning about hell is a spiritual charge, an awakening, and a clarion call to show you where unbelievers, witches, and agents of Satan go for eternity for rejecting and denying Christ. This is what this teaching essay is designed to do — to give you insight into a place that the Lord Jesus Christ tries to save us from.
+    </p>
+
+    <div class="section-head">No Hiding Place</div>
+
+    <p>
+      Nothing is hidden from God — not even the place of the dead. Job says it clearly: the grave lies open before him, completely exposed, nothing covering it (Job 26:6). If God can see the grave that clearly — a place people think of as the end, where secrets stay buried — then he can see straight into the human heart too. Solomon says the same thing in Proverbs: if the grave and destruction are open before the Lord, how much more the hearts of men (Proverbs 15:11). And it's into that exposed, uncovered place that the wicked descend — not just a few stray souls, but every nation that forgot God, sinking down together into the realm of the dead (Psalm 9:17). This is no cold, silent grave either. It is kindled — a fire lit by the wrath of God Himself, a fire that doesn't stay contained but burns downward into the depths below, and outward — devouring the earth, consuming its harvests, setting even the foundations of the mountains on fire until the ground itself is burning (Deuteronomy 32:22).
+    </p>
+
+    <div class="section-head">The Fire That Does Not Relent</div>
+
+    <p>
+      This is the same fire the devil is thrown into — along with the beast and the false prophet — where torment doesn't pause, doesn't let up, doesn't end: day and night, forever and ever, without relief (Revelation 20:10). It is the place Jesus Himself warned of, where the worm assigned to consume the body never dies and the fire never burns low, never goes out, never stops (Mark 9:48) — the same horror Isaiah saw centuries earlier: corpses of the rebellious, worms feeding without dying, fire burning without quenching, a sight so grim it makes those rebellious ones loathsome to everyone who looks on them (Isaiah 66:24). And this, the Psalmist warns, is what waits for those who trust in themselves — who build their confidence on their own name, cheered on by others who admire them for it. Like sheep driven without a shepherd, they are marked for death, and death itself becomes the one who leads them. Their bodies waste away, decaying in the realm of the dead, far — infinitely far — from the mansions and monuments they built for themselves while they lived (Psalm 49:13–14).
+    </p>
+
+    <div class="section-head">A Prophet Who Never Died</div>
+
+    <p>
+      Scripture does not leave this warning to stand alone. Genesis records a man who escaped death entirely — and Jude tells us why he matters here.
+    </p>
+
+    <div class="scripture-block">
+      <div class="scripture-ref">Jude 1:14–25</div>
+      <p>"It was also about these that Enoch, the seventh from Adam, prophesied, saying, 'See, the Lord is coming with thousands upon thousands of his holy ones to judge everyone, and to convict all of them of all the ungodly acts they have committed in their ungodliness, and of all the defiant words ungodly sinners have spoken against him.' These people are grumblers and faultfinders; they follow their own evil desires; they boast about themselves and flatter others for their own advantage. But, dear friends, remember what the apostles of our Lord Jesus Christ foretold. They said to you, 'In the last times there will be scoffers who will follow their own ungodly desires.' These are the people who divide you, who follow mere natural instincts and do not have the Spirit. But you, dear friends, by building yourselves up in your most holy faith and praying in the Holy Spirit, keep yourselves in God's love as you wait for the mercy of our Lord Jesus Christ to bring you to eternal life. Be merciful to those who doubt; save others by snatching them from the fire; to others show mercy, mixed with fear — hating even the clothing stained by corrupted flesh."</p>
+    </div>
+
+    <p>
+      Hebrews 11:5 comes back to this and says faith is why Enoch was taken up instead of dying. He pleased God, and that faith led to his unusual ending. He's also the namesake behind the non-canonical book of 1 Enoch — and the verses above, Jude 14–15, are a direct quote from it, not just a shared idea. Jude names his source outright, using the same formula scripture uses to introduce prophecy. So while the book of 1 Enoch never entered the canon, this passage carries a status few non-canonical texts can claim: an apostle citing it, by name, as true prophecy about the last days. That's reason enough to see what Enoch saw. The vision begins where the ordinary world ends.
+    </p>
+
+    <div class="section-head">The Abyss and the Formless Waste</div>
+
+    <p>
+      Beyond the seven jeweled mountains, the ground gives way to an abyss lined with pillars of heavenly fire — some still standing, some collapsing into the depths, their height and depth beyond any measure Enoch can name (1 Enoch 18:11). It is the first sign that what lies ahead cannot be mapped by ordinary geography. Further still, the abyss opens onto something worse than fire: a formless waste. No sky above it. No solid ground beneath it. No water. No birds. Nothing living, nothing structured — only emptiness, and the terror of emptiness. Before Enoch sees a single soul in torment, he sees this: judgment begins with the undoing of order itself, a place stripped of everything that makes a place a place.
+    </p>
+
+    <div class="section-head">The Prison of the Stars</div>
+
+    <p>
+      It's here, in this waste, that Enoch finds the prison. Seven stars, burning like great mountains, bound together — the host of heaven who broke their appointed order and "rolled over the fire" rather than rise on time. Cosmic law-breakers, held for ten thousand years, until their guilt is fully spent. Nearby, in a companion vision, is something even more terrible: a pit with no floor, no visible bottom, pillars of fire falling downward without end — the prison built for the angels themselves, sealed until the day of final judgment (1 Enoch 18:12–16; 21:1–10).
+    </p>
+
+    <div class="section-head">The Four Chambers</div>
+
+    <p>
+      The path then leads to a mountain in the west, and here the geography turns precise (1 Enoch 22:1–13). Four hollow chambers, deep and wide and smooth, each holding a different category of the dead. One is marked by a spring of bright water — the righteous. One holds sinners who died before judgment ever touched them in life, their spirits waiting in torment for the great day still to come. One holds the wronged — those still crying out for justice, given a face and a voice in the spirit of Abel, who has not stopped testifying against his brother. And the fourth holds sinners complete in their transgression, companions to the others in place but not in fate — they will not be raised when the day comes. Four chambers. Four verdicts, already decided, waiting only to be executed.
+    </p>
+
+    <div class="section-head">The Cursed Valley</div>
+
+    <p>
+      Beyond the mountain lies a valley set apart — cursed, cut off from the mercy that touches everything around it (1 Enoch 27:1–4). This is where those who turned their mouths against God are gathered and judged, and Enoch is shown something that unsettles the picture of judgment as a private matter, quietly resolved: the sentence is carried out in full view of the righteous, and it does not fade into memory (1 Enoch 27:2–3). It stands forever before their eyes — not a past event but a permanent testimony to what it costs to curse the Eternal King.
+    </p>
+
+    <div class="section-head">The Furnace and the Chains</div>
+
+    <p>
+      Then the furnace. A deep valley, burning, dropping away beneath the earth itself — the destination for kings and the mighty, all who held power and spent it apart from God (1 Enoch 54:1–2). And alongside it, chains being forged: iron of a weight no human strength could lift, made not for the kings but for Azazel and the fallen watchers who led creation astray (1 Enoch 54:3–5). Their sentence is spelled out in full — bound, their mouths stopped with rough stones, the same voices that once seduced humanity now permanently silenced, until Michael, Gabriel, Raphael, and Phanuel come to seize them and cast them, with their own hands, into the fire (1 Enoch 54:6). Enoch names the place plainly: the abyss of complete condemnation. Not a holding cell. A terminus.
+    </p>
+
+    <div class="section-head">Darkness at the Throne</div>
+
+    <p>
+      And then, closest to the throne, the vision turns from geography to sensation (1 Enoch 62:5–11; 63:11). Darkness becomes something you can feel piled on your face, a weight rather than an absence. Pain seizes the body the way labor seizes a woman in travail — involuntary, consuming, physical. Shame bends the posture; the eyes cannot lift toward glory. The angels of punishment take hold and lead the condemned away — not into a chamber, but outward, into distance, into an exile with no return address.
+    </p>
+
+    <div class="section-head">The Boundary</div>
+
+    <p>
+      Last of all, the boundary. Not a chamber, but a threshold — the moment before the door closes (1 Enoch 50:1–5). What Enoch is shown here isn't torment itself, but the mechanism of it: a gate, an appointed moment, and the plain fact that whatever lies past that threshold no longer answers to appeal.
+    </p>
+
+    <div class="section-rule"></div>
+
+    <div class="conclusion-box">
+      <h3>For Lack of Knowledge</h3>
+      <p>
+        This is why it is important to teach on hell in the church. Because how can you be scared or worried about a place that you don't know anything about? You have now seen what scripture and Enoch's own testimony describe — the grave laid open before God, the fire that does not relent, the abyss beyond the seven mountains, the four chambers waiting with verdicts already reached, the chains forged for those who led creation astray, the darkness pressed like a weight upon the face, and the gate that will not answer to appeal once it closes.
+      </p>
+      <p class="conclusion-final">
+        This is not folklore. This is not a threat empty of substance. It is the place Christ Himself warned of, wept over, and died to save you from.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="author-block">
+      <div class="author-initials">JG</div>
+      <div>
+        <div class="author-name">Jimey Grant</div>
+        <div class="author-title">The Remnant Chronicles &nbsp;·&nbsp; Lafayette, Louisiana</div>
+      </div>
+    </div>
+    <a href="index.html" class="back-btn">← All Chronicles</a>
+  </div>
+
+</main>
+
+<section class="cta-strip">
+  <h3>Commission a Work</h3>
+  <p>Strategic writing infused with doctrinal analysis and scriptural precision.</p>
+  <a href="services.html" class="cta-btn">View Services</a>
+</section>
+
+<footer>
+  <span class="footer-name">Jimey Grant &nbsp;·&nbsp; The Remnant Chronicles</span>
+  <span class="footer-copy">© 2026 All Rights Reserved</span>
+</footer>
+
+</body>
+</html>

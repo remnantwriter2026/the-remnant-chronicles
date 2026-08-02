@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Picturing Heaven | The Remnant Chronicles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0f2219;
+    --green-dark: #152e21;
+    --green-mid: #1a3a2a;
+    --green-rich: #1e4432;
+    --green-accent: #2a5c40;
+    --gold: #C9941A;
+    --gold-light: #e0ac3a;
+    --cream: #f0ead8;
+    --cream-muted: #c8bfa8;
+    --text-body: #d8cdb8;
+    --text-muted: #8aaa90;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--green-deep);
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.85;
+  }
+
+  nav {
+    background: var(--green-deep);
+    border-bottom: 1px solid var(--gold);
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-seal {
+    width: 36px; height: 36px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600;
+    color: var(--green-deep); letter-spacing: 1px;
+  }
+  .nav-title { font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-family: 'Cinzel', serif; font-size: 11px; color: var(--text-muted);
+    text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .article-hero {
+    background: var(--green-rich); border-bottom: 3px solid var(--gold);
+    padding: 5rem 2.5rem 4rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .article-hero::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: var(--green-accent); opacity: .3;
+  }
+  .article-hero::after {
+    content: ''; position: absolute; bottom: -60px; left: -40px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: var(--green-accent); opacity: .2;
+  }
+  .article-label {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; position: relative;
+  }
+  .article-label span { display: inline-block; border: 1px solid var(--gold); padding: 4px 16px; }
+  .article-hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(32px, 5vw, 54px); font-weight: 700;
+    color: #ffffff; line-height: 1.15; margin-bottom: .75rem; position: relative;
+  }
+  .article-hero h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(16px, 2.5vw, 22px); font-weight: 400;
+    font-style: italic; color: var(--gold-light); margin-bottom: 2rem; position: relative;
+  }
+  .hero-divider { width: 80px; height: 3px; background: var(--gold); margin: 0 auto 2rem; position: relative; }
+  .article-meta {
+    display: flex; align-items: center; justify-content: center; gap: 2rem;
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px;
+    color: var(--text-muted); text-transform: uppercase; position: relative; flex-wrap: wrap;
+  }
+
+  .article-wrapper { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+
+  .article-intro {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px; font-style: italic; color: var(--cream-muted);
+    line-height: 1.7; border-left: 3px solid var(--gold);
+    padding-left: 1.5rem; margin-bottom: 3rem;
+  }
+
+  .article-body p { margin-bottom: 1.5rem; color: var(--text-body); }
+
+  .article-body > p:first-of-type::first-letter {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 72px; font-weight: 700; color: var(--gold);
+    float: left; line-height: .8; margin: 8px 12px 0 0;
+  }
+
+  .section-head {
+    font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600;
+    color: var(--gold); letter-spacing: 2px; text-transform: uppercase;
+    margin: 3rem 0 1.25rem; padding-bottom: .75rem;
+    border-bottom: 1px solid var(--green-accent);
+  }
+
+  .escape-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--green-accent); margin: 2rem 0;
+  }
+  .escape-card { background: var(--green-rich); padding: 1.5rem; }
+  .escape-label {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .escape-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 17px; font-weight: 600; color: var(--cream); margin-bottom: .6rem;
+  }
+  .escape-card p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin: 0; }
+  .escape-card.true { border-top: 3px solid var(--gold); }
+  .escape-card.false { border-top: 3px solid #4a3a2a; }
+
+  .scripture-block {
+    background: var(--green-rich); border-left: 4px solid var(--gold);
+    padding: 1.5rem 1.75rem; margin: 2rem 0;
+  }
+  .scripture-ref {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .scripture-block p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-style: italic; color: var(--cream);
+    line-height: 1.65; margin: 0 !important;
+  }
+
+  .question-box {
+    border: 1px solid var(--gold); background: var(--green-rich);
+    padding: 1.75rem 2rem; margin: 2rem 0; text-align: center;
+  }
+  .question-box p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px; font-style: italic; color: var(--cream);
+    line-height: 1.6; margin: 0 !important;
+  }
+
+  .answer-box {
+    background: var(--green-rich); border-top: 3px solid var(--gold);
+    padding: 1.75rem 2rem; margin: 2rem 0;
+  }
+  .answer-label {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .75rem;
+  }
+  .answer-box p {
+    font-size: 17px; color: var(--cream-muted); line-height: 1.8; margin: 0;
+  }
+
+  .section-rule { width: 100%; height: 1px; background: var(--green-accent); margin: 2.5rem 0; }
+
+  .conclusion-box {
+    background: var(--green-rich); border: 1px solid var(--gold);
+    padding: 2rem 2.25rem; margin: 3rem 0 0;
+  }
+  .conclusion-box h3 {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .conclusion-box p {
+    color: var(--cream-muted); margin-bottom: 1rem; font-size: 18px; line-height: 1.8;
+  }
+  .conclusion-box p:last-child { margin-bottom: 0; }
+  .conclusion-final {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-style: italic;
+    color: var(--gold-light) !important; margin-top: 1rem !important;
+  }
+
+  .article-footer {
+    border-top: 1px solid var(--green-accent); margin-top: 4rem; padding-top: 2.5rem;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+  }
+  .author-block { display: flex; align-items: center; gap: 12px; }
+  .author-initials {
+    width: 48px; height: 48px; border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 14px; color: var(--green-deep); font-weight: 600;
+  }
+  .author-name { font-family: 'Cinzel', serif; font-size: 13px; color: var(--cream); letter-spacing: 1px; }
+  .author-title { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .back-btn {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--gold); text-decoration: none;
+    border: 1px solid var(--gold); padding: 10px 22px; transition: all .2s;
+  }
+  .back-btn:hover { background: var(--gold); color: var(--green-deep); }
+
+  .cta-strip {
+    background: var(--green-mid); border-top: 3px solid var(--gold);
+    padding: 3rem 2.5rem; text-align: center;
+  }
+  .cta-strip h3 {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .cta-strip p { font-size: 16px; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .cta-btn {
+    display: inline-block; background: var(--gold); color: var(--green-deep);
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 13px 32px; text-decoration: none;
+    font-weight: 600; transition: background .2s;
+  }
+  .cta-btn:hover { background: var(--gold-light); }
+
+  footer {
+    background: var(--green-deep); border-top: 1px solid var(--green-accent);
+    padding: 1.5rem 2.5rem; display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-name { font-family: 'Cinzel', serif; font-size: 12px; color: var(--gold); letter-spacing: 1px; }
+  .footer-copy { font-family: 'Cinzel', serif; font-size: 11px; color: var(--green-accent); }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 10px; }
+    .article-hero { padding: 3.5rem 1.25rem 3rem; }
+    .article-wrapper { padding: 2.5rem 1.25rem 3.5rem; }
+    .escape-grid { grid-template-columns: 1fr; }
+    .article-footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-seal">RC</div>
+    <span class="nav-title">The Remnant Chronicles</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">The Writings</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-label"><span>The Remnant Chronicles &nbsp;·&nbsp; Vol. XIV</span></div>
+  <h1>Picturing Heaven</h1>
+  <h2>What the Tabernacle Was Showing Us All Along</h2>
+  <div class="hero-divider"></div>
+  <div class="article-meta">
+    <span>By Jimey Grant</span>
+    <span>Lafayette, Louisiana</span>
+    <span>Doctrinal Chronicle</span>
+  </div>
+</header>
+
+<main class="article-wrapper">
+
+  <p class="article-intro">
+    The tabernacle wasn't just a place of worship — it was a physical model of something that already existed in heaven. The tent was a copy. Revelation shows you the original.
+  </p>
+
+  <div class="article-body">
+
+    <div class="section-head">Why This Matters</div>
+
+    <p>
+      In Exodus, God gives Moses a detailed blueprint for a tent — the tabernacle. Every measurement, every material, every piece of furniture is specified down to the cubit. Then, a few chapters later, Israel builds it exactly as instructed.
+    </p>
+
+    <p>
+      So if the tabernacle was only ever meant for the twelve tribes of Israel, how do the Gentiles fit into a heavenly design that started out this exclusive? That question sits underneath everything that follows.
+    </p>
+
+    <p>
+      Here's the key that unlocks everything: Hebrews tells us that the tabernacle wasn't just a place of worship. It was a physical model of something that already existed in heaven. God told Moses to build it "according to the pattern shown you on the mountain" (Exodus 25:40). The tent was a copy. Revelation shows you the original.
+    </p>
+
+    <p>
+      So as you read this, picture two versions of the same room — one built out of gold, wood, and cloth in a desert, and one that actually exists, filled with light, that John was allowed to see and describe. Every item below works the same way: first, the earthly model, then the heavenly reality it points to.
+    </p>
+
+    <div class="section-head">The Ladder Between Two Worlds</div>
+
+    <p>
+      Before we get to the tent itself, picture this scene: Jacob is alone in open country, asleep with a rock for a pillow. In his dream, a staircase rises from the ground in front of him, and its top disappears into the sky. Angels are moving on it — some climbing up, some coming down — connecting the ground where Jacob is lying to wherever it is they're coming from (Genesis 28:12). When Jacob wakes up, he says he has found "the gate of heaven."
+    </p>
+
+    <p>
+      Centuries later, Jesus picks up that exact image and applies it to Himself. He tells Nathanael that he will see "heaven opened, and the angels of God ascending and descending on the Son of Man" (John 1:51). Jesus isn't just referencing the story — He's saying he is the staircase. He is the connecting point between heaven and earth that Jacob only saw in a dream.
+    </p>
+
+    <p>
+      Keep that picture in mind: a structure whose whole purpose is to connect two separated places. That's exactly what the tabernacle is about to do too.
+    </p>
+
+    <div class="section-head">Room by Room: What Was Built, and What It Was Showing</div>
+
+    <p><strong>The Ark and the Mercy Seat → The Throne</strong></p>
+
+    <p>
+      In the tabernacle's innermost room, sealed off by a curtain, sat a gold-covered box called the Ark of the Covenant. Its lid was called the mercy seat, and two gold cherubim were hammered out of the same piece of metal, their wings stretching up and over the lid, facing each other, looking down (Exodus 25:10–22). This was where God's presence was said to dwell on earth — and almost no one was allowed to see it. One priest, once a year.
+    </p>
+
+    <p>
+      In Revelation, John is shown the real throne room. There's a throne with a presence on it too bright to fully describe. Around it are four living creatures — not carved gold anymore, but alive, covered in eyes, never silent (Revelation 4:2–3, 6–8). The cherubim on the mercy seat were a small, motionless picture of these living beings that actually surround God's throne.
+    </p>
+
+    <p>
+      And this throne room isn't reserved for a narrow group. Later, in Revelation 7, John sees a multitude too large to count, "from every nation, from all tribes and peoples and languages, standing before the throne and before the Lamb" (Revelation 7:9). Revelation 7:15 says of them plainly, "they are before the throne of God, and serve him day and night in his temple." What one priest alone could approach, once a year, in the tabernacle, is now where countless people from every nation stand, openly, before the same throne.
+    </p>
+
+    <p><strong>The Lampstand → The Seven Spirits of Fire</strong></p>
+
+    <p>
+      Inside the tabernacle stood a lampstand hammered from a single piece of gold, with seven branches and seven flames, lighting the space so the priests could see to do their work (Exodus 25:31–40).
+    </p>
+
+    <p>
+      In Revelation, John sees seven lamps of fire burning in front of the throne, identified as the seven spirits of God (Revelation 4:5). The lampstand in the tent was a small, physical stand-in for something that is actually burning in heaven right now.
+    </p>
+
+    <p><strong>The Altar of Incense → The Prayers of the Saints</strong></p>
+
+    <p>
+      Just outside the inner curtain stood a smaller gold altar. Every morning and evening, a priest burned incense on it, and the smoke rose and drifted upward, out of sight (Exodus 30:1–10).
+    </p>
+
+    <p>
+      In Revelation, the twenty-four elders around the throne hold golden bowls full of incense, and John is told plainly what the incense represents: "the prayers of the saints" (Revelation 5:8). That smoke that used to rise and disappear from a priest's altar was never actually lost. It was going somewhere. This shows you where.
+    </p>
+
+    <p><strong>The Bronze Basin → The River of Life</strong></p>
+
+    <p>
+      Between the entrance and the tent itself sat a bronze basin filled with water. Priests washed their hands and feet there before going any further in. This wasn't optional — you couldn't carry ordinary dirt into a holy space (Exodus 30:17–21). Notice where the basin stood: not the same gold altar of incense from the last section, but the larger bronze altar just outside the tent, where sacrificial blood was offered for sin (Exodus 27:1–8). The basin sat between that altar and the entrance to the tent itself. To get from one to the other, a priest had to pass through water.
+    </p>
+
+    <p>
+      That same order — blood, then water — shows up again hundreds of years later, at the cross.
+    </p>
+
+    <p>
+      Ezekiel already showed where this water was really coming from. In a vision, Ezekiel sees water flowing out from under the temple. It starts small and grows into a river too deep to cross, with trees along the banks whose leaves are used for healing (Ezekiel 47:1–12). The basin in the tabernacle had to be refilled and used again and again because it was never the real source. It was just a small supply, borrowed from somewhere else. Ezekiel's vision shows the actual source: water flowing straight from where God lives.
+    </p>
+
+    <p>
+      Jesus then said his own body was that dwelling place. Earlier in John's gospel, Jesus calls his body "this temple" (John 2:19–21). Later, standing up at a feast, he says, "If anyone thirsts, let him come to me and drink … out of his heart will flow rivers of living water." John explains Jesus meant the Spirit, which believers would receive after He was glorified (John 7:37–39). In plain terms, Jesus is telling people: I am about to become the source Ezekiel saw.
+    </p>
+
+    <p>
+      Then it actually happened, at the cross. John was there, and he writes that a soldier pierced Jesus' side with a spear, "and at once there came out blood and water" (John 19:34). John stops and says he's telling the truth about what he saw (John 19:35) — a signal that this detail matters and shouldn't be skipped over. Blood, which paid for sin, and water, which cleanses, come out of the same wound, in the same order as the altar and the basin. John brings up this same pairing again later, listing the Spirit, the water, and the blood together as proof of who Jesus is (1 John 5:6–8).
+    </p>
+
+    <p>
+      Revelation shows what that water becomes, forever. John sees a river, clear as crystal, flowing straight from the throne, with a tree on each side whose leaves are "for the healing of the nations" (Revelation 22:1–2) — almost the same words Ezekiel used. The basin needed refilling because it could never actually fix the problem on its own. What flowed out of Jesus at the cross was that source finally breaking open. What John sees in Revelation is that same river, still flowing, never stopping.
+    </p>
+
+    <p>
+      In the tabernacle, washing was something you had to do before you were allowed to go further in. By Revelation, it isn't a task anymore. It's just there, flowing, part of the place itself — because the water that used to sit in a bronze bowl, waiting to be refilled, now flows on its own and never runs out.
+    </p>
+
+    <p><strong>The Veil → No Veil at All</strong></p>
+
+    <p>
+      A thick curtain, woven with blue, purple, and scarlet thread and embroidered with cherubim, separated the main room of the tabernacle from the innermost room where the Ark sat (Exodus 26:31–33). That curtain existed for one reason: to keep people out of God's direct presence, because direct, unmediated access wasn't yet possible.
+    </p>
+
+    <div class="scripture-block">
+      <div class="scripture-ref">Revelation 21:3</div>
+      <p>"Behold, the dwelling place of God is with man. He will dwell with them."</p>
+    </div>
+
+    <p>
+      The entire purpose of the veil — separation — has ended. Not eased. Ended.
+    </p>
+
+    <p><strong>No Temple Building → "I Saw No Temple"</strong></p>
+
+    <p>
+      This is an easy detail to miss, but it matters: the tabernacle itself was the whole point. There was no larger temple building around it in the wilderness — it was the meeting place, full stop.
+    </p>
+
+    <p>
+      In the New Jerusalem, John says the same thing is true again, but permanently: he sees no temple in the city at all, "for its temple is the Lord God the Almighty and the Lamb" (Revelation 21:22). The entire tent-and-temple system — thousands of years of buildings, priests, and rituals — was never the goal. It existed to point toward something God has always wanted: to be directly present with the people he's making his own, with nothing standing in between. In the New Jerusalem, that presence is no longer something a building has to represent. It's simply how things are.
+    </p>
+
+    <p><strong>The Twelve Stones and the Twelve Tribes → The City's Foundation and Gates</strong></p>
+
+    <p>
+      The high priest wore a breastplate set with twelve precious stones, one engraved for each tribe of Israel, worn directly over his heart whenever he entered God's presence (Exodus 28:17-21). Israel's twelve tribes themselves camped in an ordered arrangement around the tabernacle (Numbers 2), their names carried by the priest into the tent.
+    </p>
+
+    <p>
+      In Revelation, both patterns reappear together, in the same city. The New Jerusalem's wall has twelve foundations, decorated with the same kinds of precious stones as the breastplate (Revelation 21:19-21), and its twelve gates are each named for one of the twelve tribes of Israel (Revelation 21:12-14). What one priest once carried privately over his heart, and what once camped in formation around a tent in the wilderness, are now built into the visible foundation and open gates of an entire city.
+    </p>
+
+    <p><strong>Priestly Garments → A Kingdom of Priests</strong></p>
+
+    <p>
+      Only specially dressed, specially consecrated men could serve in the tabernacle (Exodus 28–29). Access to that role was narrow and restricted.
+    </p>
+
+    <p>
+      In Revelation, believers themselves are described as having been made "a kingdom, priests to his God" (Revelation 1:6, 5:10). The restricted role of a few has become the identity of everyone who belongs to God.
+    </p>
+
+    <p><strong>The Bread of the Presence → The Wedding Supper of the Lamb</strong></p>
+
+    <p>
+      Inside the tabernacle sat a table with fresh bread on it at all times, called the Bread of the Presence — a sign that no one stands before God empty-handed, and no one leaves his presence unfed (Exodus 25:23–30).
+    </p>
+
+    <p>
+      In Revelation, that picture becomes an actual meal: the marriage supper of the Lamb (Revelation 19:9), with hidden manna promised to those who overcome (Revelation 2:17). A loaf sitting on a table in a tent was pointing toward an actual invitation to an actual table.
+    </p>
+
+    <div class="section-head">Every Nation Included</div>
+
+    <p>
+      When the tabernacle was first built, there was no place in it for Gentiles at all — not a smaller section, not a back area, nothing. Israel was set apart on purpose, chosen out from among the nations, not merged with them (Exodus 19:5-6), with access to worship tied to the covenant itself (Genesis 17:9-14). Paul sums up what this meant for Gentiles: "separated from Christ, alienated from the commonwealth of Israel, and strangers to the covenants of promise" (Ephesians 2:12).
+    </p>
+
+    <p>
+      The Bible is specific about when this changed, and it didn't happen all at once. During his earthly ministry, Jesus sends his disciples to Israel alone, specifically instructing them not to go to Gentile or Samaritan towns (Matthew 10:5-6). After the resurrection, that widens to "all nations" (Matthew 28:19). The turning point for Gentiles comes in Acts 10, when Peter is told in a vision not to call anything God has made unclean, then watches the Holy Spirit fall on Cornelius's Gentile household exactly as it had on Jewish believers — leading Peter to ask, "Can anyone withhold water for baptizing these people?" (Acts 10:15, 44-47). The Jerusalem council in Acts 15 confirms it for the whole church: Gentiles are saved by grace, the same way, without becoming Jewish first (Acts 15:11).
+    </p>
+
+    <p>
+      Paul explains this wasn't a backup plan — it was a promise "hidden for ages" and now revealed, that Gentiles are "fellow heirs, members of the same body, and partakers of the promise in Christ Jesus" (Ephesians 3:6), rooted all the way back in God's word to Abraham that "in you shall all the nations be blessed" (Galatians 3:8). So the tabernacle's total exclusion of Gentiles fits the same pattern as its other restrictions — the veil, the once-a-year priest — that were only ever meant to last for a while. All of them get resolved later, by opening things up rather than shrinking down. Here's what that resolution actually looks like in the text.
+    </p>
+
+    <p>
+      Revelation 7 shows two distinct groups, and the text marks the shift between them clearly. Verses 1-8 describe 144,000 sealed, listed by the twelve tribes of Israel, by name. Then verse 9 begins a new scene: "After this I looked, and behold, a great multitude that no one could number, from every nation, from all tribes and peoples and languages, standing before the throne and before the Lamb" (Revelation 7:9). The phrase "after this I looked" marks a shift within the same vision — John's attention moves from the sealed tribes of Israel, marked on earth, to a separate multitude from every nation, seen standing before the throne.
+    </p>
+
+    <p>
+      This is one continuous unveiling. John sees the sealed on earth (Revelation 7:1-3), then a multitude from every nation before the throne (Revelation 7:9). Chapters later, the picture completes: a city with twelve gates named for the twelve tribes, standing open to every nation (Revelation 21:12-14, 24-25). The wall that once divided Israel from the nations never returns.
+    </p>
+
+    <p>
+      Revelation also states that "the nations will walk by its light, and the kings of the earth will bring their glory into it" (Revelation 21:24), and that the city's gates "will never be shut" (Revelation 21:25). The nations are described as having access into the city itself.
+    </p>
+
+    <div class="section-rule"></div>
+
+    <div class="conclusion-box">
+      <h3>The Big Picture</h3>
+      <p>
+        Read in order, the whole arc makes one argument: God has always wanted to live directly with his people, without a curtain, without a mediator standing in for you, without distance. The tabernacle was never the destination — it was a scale model, built precisely so that one nation, set apart at that stage of the story, could begin to picture something too large to picture yet.
+      </p>
+      <p>
+        But the model was never meant to describe a room built for Israel alone. The same Bible that shows Israel set apart also shows, from the very beginning, a promise that every nation on earth would be blessed through them (Genesis 12:3; Galatians 3:8) — and Revelation is where that promise finally reaches its full size. Jew and Gentile, once kept apart by a real and necessary wall, are made "fellow heirs, members of the same body" (Ephesians 3:6) — or as Paul puts it even more directly: "There is neither Jew nor Greek … for you are all one in Christ Jesus" (Galatians 3:28). Not two separate outcomes, but one people, one place, one throne.
+      </p>
+      <p class="conclusion-final">
+        Revelation doesn't describe a different plan. It describes the same plan, finally accomplished — the curtain down, the gates never shut, and everyone who was ever kept out, from every tribe and every nation, standing inside it together.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="author-block">
+      <div class="author-initials">JG</div>
+      <div>
+        <div class="author-name">Jimey Grant</div>
+        <div class="author-title">The Remnant Chronicles &nbsp;·&nbsp; Lafayette, Louisiana</div>
+      </div>
+    </div>
+    <a href="index.html" class="back-btn">← All Chronicles</a>
+  </div>
+
+</main>
+
+<section class="cta-strip">
+  <h3>Commission a Work</h3>
+  <p>Strategic writing infused with doctrinal analysis and scriptural precision.</p>
+  <a href="services.html" class="cta-btn">View Services</a>
+</section>
+
+<footer>
+  <span class="footer-name">Jimey Grant &nbsp;·&nbsp; The Remnant Chronicles</span>
+  <span class="footer-copy">© 2026 All Rights Reserved</span>
+</footer>
+
+</body>
+</html>
