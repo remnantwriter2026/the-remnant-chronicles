@@ -276,42 +276,6 @@
     font-size: 28px; font-weight: 700; color: var(--gold); margin-top: .75rem;
   }
 
-  /* NEWSLETTER */
-  .newsletter-band {
-    background: var(--green-mid);
-    border-top: 1px solid var(--green-accent);
-    padding: 4rem 2.5rem; text-align: center;
-  }
-  .newsletter-band h2 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 32px; font-weight: 700; color: #ffffff; margin-bottom: .5rem;
-  }
-  .newsletter-band p {
-    font-size: 17px; color: var(--text-muted); font-style: italic; margin-bottom: 2rem;
-  }
-  .newsletter-form {
-    display: flex; gap: .75rem; max-width: 480px; margin: 0 auto; flex-wrap: wrap; justify-content: center;
-  }
-  .newsletter-form input {
-    flex: 1; min-width: 220px;
-    background: var(--green-rich); border: 1px solid var(--green-accent);
-    color: var(--cream); font-family: 'EB Garamond', Georgia, serif;
-    font-size: 16px; padding: 12px 16px; outline: none;
-    transition: border-color .2s;
-  }
-  .newsletter-form input::placeholder { color: var(--text-muted); }
-  .newsletter-form input:focus { border-color: var(--gold); }
-  .newsletter-form button {
-    background: var(--gold); color: var(--green-deep);
-    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
-    text-transform: uppercase; padding: 12px 24px; border: none;
-    cursor: pointer; font-weight: 600; transition: background .2s;
-  }
-  .newsletter-form button:hover { background: var(--gold-light); }
-  .newsletter-note {
-    font-size: 13px; color: var(--text-muted); margin-top: 1rem; font-style: italic;
-  }
-
   /* FOOTER */
   footer {
     background: var(--green-deep); border-top: 3px solid var(--gold);
@@ -359,7 +323,6 @@
     .featured-inner { grid-template-columns: 1fr; gap: 1.5rem; padding: 3rem 1.25rem; }
     .chronicles-section { padding: 3rem 1.25rem; }
     .services-band { padding: 3rem 1.25rem; }
-    .newsletter-band { padding: 3rem 1.25rem; }
     footer { padding: 2rem 1.25rem 1.25rem; }
   }
 </style>
@@ -381,7 +344,7 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-eyebrow"><span>Strategic Writing &nbsp;·&nbsp; Doctrinal Analysis</span></div>
+  <div class="hero-eyebrow"><span>Strategic Writing &nbsp;&middot;&nbsp; Doctrinal Analysis</span></div>
   <h1>The Remnant<br><em>Chronicles</em></h1>
   <div class="hero-divider"></div>
   <p class="hero-tagline">Strategic writing infused with doctrinal analysis and scriptural precision — for those who refuse to accept a shallow faith in a deep crisis.</p>
@@ -570,17 +533,6 @@
     </div>
   </div>
   <a href="services.html" class="btn-primary">View Full Services</a>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="newsletter-band">
-  <h2>Join the Chronicle</h2>
-  <p>New writings delivered directly to your inbox. No noise — only substance.</p>
-  <div class="newsletter-form">
-    <input type="email" placeholder="Your email address">
-    <button type="submit">Subscribe</button>
-  </div>
-  <p class="newsletter-note">No spam. Unsubscribe at any time.</p>
 </section>
 
 </body>
