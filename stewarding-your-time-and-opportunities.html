@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stewarding Your Time and Opportunities | The Remnant Chronicles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0f2219;
+    --green-dark: #152e21;
+    --green-mid: #1a3a2a;
+    --green-rich: #1e4432;
+    --green-accent: #2a5c40;
+    --gold: #C9941A;
+    --gold-light: #e0ac3a;
+    --cream: #f0ead8;
+    --cream-muted: #c8bfa8;
+    --text-body: #d8cdb8;
+    --text-muted: #8aaa90;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--green-deep);
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.85;
+  }
+
+  nav {
+    background: var(--green-deep);
+    border-bottom: 1px solid var(--gold);
+    padding: 0 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-seal {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--green-deep);
+    letter-spacing: 1px;
+  }
+
+  .nav-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--gold);
+  }
+
+  .article-hero {
+    background: var(--green-rich);
+    border-bottom: 3px solid var(--gold);
+    padding: 5rem 2.5rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .article-hero::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: var(--green-accent);
+    opacity: .3;
+  }
+
+  .article-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--green-accent);
+    opacity: .2;
+  }
+
+  .article-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+
+  .article-label span {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    padding: 4px 16px;
+  }
+
+  .article-hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: .75rem;
+    position: relative;
+  }
+
+  .article-hero h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 3px;
+    background: var(--gold);
+    margin: 0 auto 2rem;
+    position: relative;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .article-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 4rem 2rem 5rem;
+  }
+
+  .article-intro {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--cream-muted);
+    line-height: 1.7;
+    border-left: 3px solid var(--gold);
+    padding-left: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .article-body p {
+    margin-bottom: 1.5rem;
+    color: var(--text-body);
+  }
+
+  .article-body > p:first-of-type::first-letter {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--gold);
+    float: left;
+    line-height: .8;
+    margin: 8px 12px 0 0;
+  }
+
+  .conclusion-box {
+    background: var(--green-rich);
+    border: 1px solid var(--gold);
+    padding: 2rem 2.25rem;
+    margin: 3rem 0 0;
+  }
+
+  .conclusion-box h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .conclusion-box p {
+    color: var(--cream-muted);
+    margin-bottom: 0;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .article-footer {
+    border-top: 1px solid var(--green-accent);
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .author-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .author-initials {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--green-deep);
+    font-weight: 600;
+  }
+
+  .author-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--cream);
+    letter-spacing: 1px;
+  }
+
+  .author-title {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .back-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    padding: 10px 22px;
+    transition: all .2s;
+  }
+
+  .back-btn:hover {
+    background: var(--gold);
+    color: var(--green-deep);
+  }
+
+  .cta-strip {
+    background: var(--green-mid);
+    border-top: 3px solid var(--gold);
+    padding: 3rem 2.5rem;
+    text-align: center;
+  }
+
+  .cta-strip h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .5rem;
+  }
+
+  .cta-strip p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--green-deep);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 13px 32px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background .2s;
+  }
+
+  .cta-btn:hover {
+    background: var(--gold-light);
+  }
+
+  footer {
+    background: var(--green-deep);
+    border-top: 1px solid var(--green-accent);
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+
+  .footer-copy {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--green-accent);
+  }
+
+  @media (max-width: 600px) {
+    nav {
+      padding: 0 1.25rem;
+    }
+
+    .nav-links {
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      font-size: 10px;
+    }
+
+    .article-hero {
+      padding: 3.5rem 1.25rem 3rem;
+    }
+
+    .article-wrapper {
+      padding: 2.5rem 1.25rem 3.5rem;
+    }
+
+    .article-footer {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-seal">RC</div>
+    <span class="nav-title">The Remnant Chronicles</span>
+  </a>
+
+  <div class="nav-links">
+    <a href="index.html">The Writings</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-label">
+    <span>The Remnant Chronicles &nbsp;·&nbsp; Vol. XVIII</span>
+  </div>
+
+  <h1>Stewarding Your Time and Opportunities</h1>
+
+  <h2>Understanding the Times and Knowing What to Do</h2>
+
+  <div class="hero-divider"></div>
+
+  <div class="article-meta">
+    <span>By Jimey Grant</span>
+    <span>Lafayette, Louisiana</span>
+    <span>Op-Ed</span>
+  </div>
+</header>
+
+<main class="article-wrapper">
+
+  <p class="article-intro">
+    Time and opportunity are two of the most valuable resources God places in our hands. We cannot control every circumstance, but we are responsible for how we use the time we have been given and how we respond to the opportunities placed before us.
+  </p>
+
+  <div class="article-body">
+
+    <p>
+      Ecclesiastes 3:1 teaches, “There is a time for everything, and a season for every activity under the heavens.” This verse reminds us that life moves according to seasons. There is a time to begin, a time to build, a time to serve, a time to grow, and a time to complete what God has placed before us.
+    </p>
+
+    <p>
+      To steward those seasons wisely, we must understand that time is more than the passing of minutes and hours. The spiritual realm operates through both chronos and kairos time. Chronos represents measured time—days, weeks, months, and years. Kairos represents a moment, opportunity, or season that is divinely appointed or inspired. We must learn to value both. Every day matters, but some moments carry a unique opportunity that may not return in the same way.
+    </p>
+
+    <p>
+      Genesis 8:22 reminds us that as long as the earth remains, there will be seedtime and harvest. What we plant through our decisions, discipline, preparation, and obedience will eventually produce a harvest. Jesus demonstrated this principle when He said, “As long as it is day, we must do the works of him who has sent me. Night is coming, when no one can work” (John 9:4). He understood that His earthly assignment had a specific window, so He faithfully used His time and did not waste the opportunity to fulfill the work of the Father.
+    </p>
+
+    <p>
+      First Chronicles 12:32 speaks of the men of Issachar, who understood the times and knew what Israel should do. They did not simply recognize the season; they understood the appropriate response. That is the kind of wisdom we need today. We must ask God to help us understand where we are, what we are carrying, and what we should be doing with the time and opportunities in front of us.
+    </p>
+
+    <p>
+      Many people experience burnout because they have not properly discerned their season. We often blame our lack of discernment on the enemy working against us and trying to wear us down. There is some truth in that, depending on the situation. Daniel 7:28 says that in the end times satan will have the ability to wear out the saints. But most of the time exhaustion comes from poor decision making and a lack of proper stewardship and discernment of our seasons.
+    </p>
+
+    <p>
+      When we accept every responsibility, respond to every demand, and involve ourselves in every situation, we can become overwhelmed by things God never assigned to us. Not every opportunity is the right opportunity. Not every open door is the right door. Not every need requires our participation.
+    </p>
+
+    <p>
+      If we do not understand our time, assignment, and responsibilities, we can spread ourselves too thin causing us to waste our energy on distractions while neglecting the goals and assignments that truly matter.
+    </p>
+
+    <p>
+      Once you understand the season you are in, choose one specific goal and pursue it intentionally. Do not allow every distraction to compete for your attention. Identify one and decide to take the necessary steps toward accomplishing it.
+    </p>
+
+    <p>
+      Tell yourself, “I am going to pursue this goal, and I will not allow distractions to stop me.” Challenges will come, but remain committed to the work. Stewarding your time does not mean every day will be easy. It means you are determined not to waste the days you have been given.
+    </p>
+
+    <p>
+      Steward your time, steward your opportunities, and protect your focus. You do not have unlimited time, and every opportunity will not remain available forever. Therefore, live with wisdom and intention. Recognize your season, honor your assignment, and make the most of what God has placed in your hands.
+    </p>
+
+    <div class="conclusion-box">
+      <h3>Conclusion</h3>
+      <p>
+        The way you steward your time and opportunities today will help shape the harvest you experience tomorrow.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="author-block">
+      <div class="author-initials">JG</div>
+
+      <div>
+        <div class="author-name">Jimey Grant</div>
+        <div class="author-title">
+          The Remnant Chronicles &nbsp;·&nbsp; Lafayette, Louisiana
+        </div>
+      </div>
+    </div>
+
+    <a href="index.html" class="back-btn">← All Chronicles</a>
+  </div>
+
+</main>
+
+<section class="cta-strip">
+  <h3>Commission a Work</h3>
+  <p>Strategic writing infused with doctrinal analysis and scriptural precision.</p>
+  <a href="services.html" class="cta-btn">View Services</a>
+</section>
+
+<footer>
+  <span class="footer-name">Jimey Grant &nbsp;·&nbsp; The Remnant Chronicles</span>
+  <span class="footer-copy">© 2026 All Rights Reserved</span>
+</footer>
+
+</body>
+</html>
