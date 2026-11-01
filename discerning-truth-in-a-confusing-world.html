@@ -8,11 +8,15 @@
 <style>
   :root {
     --green-deep: #0f2219;
+    --green-dark: #152e21;
     --green-mid: #1a3a2a;
     --green-rich: #1e4432;
     --green-accent: #2a5c40;
     --gold: #C9941A;
+    --gold-light: #e0ac3a;
+    --gold-pale: #f0d080;
     --cream: #f0ead8;
+    --cream-muted: #c8bfa8;
     --text-body: #d8cdb8;
     --text-muted: #8aaa90;
   }
@@ -27,7 +31,7 @@ body {
 background: var(--green-deep);
 color: var(--text-body);
 font-family: 'EB Garamond', Georgia, serif;
-font-size: 18px;
+font-size: 19px;
 line-height: 1.85;
 }
 nav {
@@ -86,45 +90,115 @@ transition: color .2s;
 .nav-links a.active {
 color: var(--gold);
 }
-.article-header {
+.article-hero {
 background: var(--green-rich);
 border-bottom: 3px solid var(--gold);
-padding: 4rem 2.5rem;
+padding: 5rem 2.5rem 4rem;
 text-align: center;
+position: relative;
+overflow: hidden;
 }
-.article-eyebrow {
+.article-hero::before {
+content: '';
+position: absolute;
+top: -100px;
+right: -100px;
+width: 400px;
+height: 400px;
+border-radius: 50%;
+background: var(--green-accent);
+opacity: .3;
+}
+.article-hero::after {
+content: '';
+position: absolute;
+bottom: -80px;
+left: -60px;
+width: 280px;
+height: 280px;
+border-radius: 50%;
+background: var(--green-accent);
+opacity: .2;
+}
+.article-label {
 font-family: 'Cinzel', serif;
 font-size: 11px;
 letter-spacing: 3px;
 text-transform: uppercase;
 color: var(--gold);
-margin-bottom: 1rem;
+margin-bottom: 1.25rem;
+position: relative;
 }
-.article-header h1 {
+.article-label span {
+display: inline-block;
+border: 1px solid var(--gold);
+padding: 4px 16px;
+}
+.article-hero h1 {
 font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(38px, 6vw, 62px);
+font-size: clamp(28px, 4.5vw, 50px);
 font-weight: 700;
 color: #ffffff;
-line-height: 1.1;
+line-height: 1.15;
 margin-bottom: .75rem;
+position: relative;
 }
-.article-header h2 {
+.article-hero h2 {
 font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(20px, 3vw, 28px);
+font-size: clamp(16px, 2.5vw, 22px);
 font-style: italic;
 font-weight: 400;
-color: var(--cream);
+color: var(--gold-light);
+margin-bottom: 2rem;
+position: relative;
 }
-.article-body {
+.hero-divider {
+width: 80px;
+height: 3px;
+background: var(--gold);
+margin: 0 auto 2rem;
+position: relative;
+}
+.article-meta {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 2rem;
+font-family: 'Cinzel', serif;
+font-size: 11px;
+letter-spacing: 1.5px;
+color: var(--text-muted);
+text-transform: uppercase;
+position: relative;
+flex-wrap: wrap;
+}
+.article-wrapper {
 max-width: 780px;
 margin: 0 auto;
-padding: 3rem 2rem 4rem;
+padding: 4rem 2rem 5rem;
+}
+.article-intro {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-size: 22px;
+font-style: italic;
+color: var(--cream-muted);
+line-height: 1.7;
+border-left: 3px solid var(--gold);
+padding-left: 1.5rem;
+margin-bottom: 3rem;
 }
 .article-body p {
-font-size: 20px;
-line-height: 1.9;
-color: var(--text-body);
 margin-bottom: 1.5rem;
+color: var(--text-body);
+}
+.article-body > p:first-of-type::first-letter {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-size: 72px;
+font-weight: 700;
+color: var(--gold);
+float: left;
+line-height: .8;
+margin: 8px 12px 0 0;
 }
 .article-nav {
 max-width: 780px;
@@ -170,16 +244,22 @@ padding: 0 1.25rem;
   font-size: 10px;
 }
 
-.article-header {
-  padding: 3.25rem 1.25rem;
+.article-hero {
+  padding: 3.5rem 1.25rem 3rem;
 }
 
-.article-body {
-  padding: 2.25rem 1.25rem 3rem;
+.article-meta {
+  gap: .75rem 1.25rem;
+  font-size: 10px;
 }
 
-.article-body p {
-  font-size: 18px;
+.article-wrapper {
+  padding: 2.5rem 1.25rem 3.5rem;
+}
+
+.article-intro {
+  font-size: 20px;
+  padding-left: 1rem;
 }
 
 .article-nav {
@@ -206,21 +286,38 @@ footer {
     <a href="contact.html">Contact</a>
   </div>
 </nav>
-<header class="article-header">
-  <div class="article-eyebrow">Vol. XIX · The Second Watch</div>
+<header class="article-hero">
+  <div class="article-label">
+    <span>The Remnant Chronicles &nbsp;·&nbsp; Vol. XIX</span>
+  </div>
   <h1>Discerning Truth in a Confusing World</h1>
   <h2>The Discipline of Thinking for Yourself</h2>
+  <div class="hero-divider"></div>
+  <div class="article-meta">
+    <span>By Jimey Grant</span>
+    <span>Lafayette, Louisiana</span>
+    <span>Op-Ed</span>
+  </div>
 </header>
-<main class="article-body">
-  <p>In a world that is filtered through different forms of media, whether it be news outlets, social media platforms, billboards, newspapers, or other people's viewpoints about a certain topic, the question that needs to be raised is: Are we thinking for ourselves, or are we being programmed just to agree?</p>
-  <p>We live in a society where social media and algorithms compete for our thoughts and perception of reality. We are more technologically connected than ever. We replace times of reflection and brainstorming with doomscrolling. We trade personal thought and conviction for social media and music trends. And we trade truth for popular opinion.</p>
-  <p>So how does one think on their own and make their own decisions while being under the influence of such media? One must master the skill of discernment. Another word for this is proper decision-making and proper judgment. This is the skill that is used not only to make a decision, but to make the right decision at the right time.</p>
-  <p>To learn this skill, one must learn how to tune out distractions and focus on the current decision that needs to be made. This decision does not involve everybody. This is a decision that is made on your own through prayer, fasting, logical reasoning, and proper research. Now, obviously, you don't need discernment to know what to eat for lunch or what kind of clothes to wear for the day. This is a skill used to make decisions that can either make or break you in life. For example, should I buy this or save my money? Should I invest in college, trade school, or just go to work and climb the ladder with the goal of either managing or owning the place after a certain amount of time?</p>
-  <p>In learning discernment, one of the skills you need to master is self-control. Self-control is the ability to self-manage and regulate your own thoughts, emotions, and actions at all times in all environments, no matter what is taking place in that environment. Once harnessed, self-control disarms impulsivity, leading to a clearer mind, a calmer overall demeanor, and a heightened sense of self-empowerment.</p>
-  <p>Looking at discernment and self-control, both these skills have 1 thing in common. Active thought. Not suggestion, implication, or coercion. This is using your own mind to think for yourself and make decisions. This involves looking at a certain situation, analyzing it, doing proper research by the means of either asking questions or going online, and then making the best possible choice based on the information that you have acquired.</p>
-  <p>The real nugget in this process is to ask questions. Asking questions helps us separate facts from assumptions and gives us a deeper level of understanding. Questions do not guarantee that we will always be right, but they help us avoid accepting every claim simply because it is popular, repeated, or emotionally appealing.</p>
-  <p>We must be willing to slow down, consider the answers, and weigh them against reliable evidence and our values. That process takes patience, humility, and the self-control to resist rushing toward the easiest or most popular answer. Just because everybody is saying that it is right does not make it right. You have to use your own mind and your own judgment. And from there you can make the best decision. Not a decision that was impressed upon you.</p>
-  <p>Thinking for ourselves does not mean rejecting every outside perspective. It means examining those perspectives carefully, seeking truth, and choosing with intention. In a noisy world, discernment and self-control help us to pause before reacting. When we make room for reflection, we reclaim our ability to think clearly, decide wisely, and live by convictions we have examined for ourselves.</p>
+<main class="article-wrapper">
+  <p class="article-intro">In a world that is filtered through different forms of media, whether it be news outlets, social media platforms, billboards, newspapers, or other people's viewpoints about a certain topic, the question that needs to be raised is: Are we thinking for ourselves, or are we being programmed just to agree? We live in a society where social media and algorithms compete for our thoughts and perception of reality.</p>
+  <div class="article-body">
+    <p>We are more technologically connected than ever. We replace times of reflection and brainstorming with doomscrolling. We trade personal thought and conviction for social media and music trends. And we trade truth for popular opinion.</p>
+<p>So how does one think on their own and make their own decisions while being under the influence of such media? One must master the skill of discernment. Another word for this is proper decision-making and proper judgment. This is the skill that is used not only to make a decision, but to make the right decision at the right time.</p>
+
+<p>To learn this skill, one must learn how to tune out distractions and focus on the current decision that needs to be made. This decision does not involve everybody. This is a decision that is made on your own through prayer, fasting, logical reasoning, and proper research. Now, obviously, you don't need discernment to know what to eat for lunch or what kind of clothes to wear for the day. This is a skill used to make decisions that can either make or break you in life. For example, should I buy this or save my money? Should I invest in college, trade school, or just go to work and climb the ladder with the goal of either managing or owning the place after a certain amount of time?</p>
+
+<p>In learning discernment, one of the skills you need to master is self-control. Self-control is the ability to self-manage and regulate your own thoughts, emotions, and actions at all times in all environments, no matter what is taking place in that environment. Once harnessed, self-control disarms impulsivity, leading to a clearer mind, a calmer overall demeanor, and a heightened sense of self-empowerment.</p>
+
+<p>Looking at discernment and self-control, both these skills have 1 thing in common. Active thought. Not suggestion, implication, or coercion. This is using your own mind to think for yourself and make decisions. This involves looking at a certain situation, analyzing it, doing proper research by the means of either asking questions or going online, and then making the best possible choice based on the information that you have acquired.</p>
+
+<p>The real nugget in this process is to ask questions. Asking questions helps us separate facts from assumptions and gives us a deeper level of understanding. Questions do not guarantee that we will always be right, but they help us avoid accepting every claim simply because it is popular, repeated, or emotionally appealing.</p>
+
+<p>We must be willing to slow down, consider the answers, and weigh them against reliable evidence and our values. That process takes patience, humility, and the self-control to resist rushing toward the easiest or most popular answer. Just because everybody is saying that it is right does not make it right. You have to use your own mind and your own judgment. And from there you can make the best decision. Not a decision that was impressed upon you.</p>
+
+<p>Thinking for ourselves does not mean rejecting every outside perspective. It means examining those perspectives carefully, seeking truth, and choosing with intention. In a noisy world, discernment and self-control help us to pause before reacting. When we make room for reflection, we reclaim our ability to think clearly, decide wisely, and live by convictions we have examined for ourselves.</p>
+
+  </div>
 </main>
 <div class="article-nav">
   <a href="the-second-watch.html" class="back-link">Back to The Second Watch</a>
