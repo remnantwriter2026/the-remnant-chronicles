@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Second Watch | The Remnant Chronicles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600&family=EB+Garamond:wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0f2219;
+    --green-mid: #1a3a2a;
+    --green-rich: #1e4432;
+    --green-accent: #2a5c40;
+    --gold: #C9941A;
+    --cream: #f0ead8;
+    --text-body: #d8cdb8;
+    --text-muted: #8aaa90;
+  }
+
+{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+background: var(--green-deep);
+color: var(--text-body);
+font-family: 'EB Garamond', Georgia, serif;
+font-size: 18px;
+line-height: 1.85;
+}
+nav {
+background: var(--green-deep);
+border-bottom: 1px solid var(--gold);
+padding: 0 2.5rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 64px;
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.nav-logo {
+display: flex;
+align-items: center;
+gap: 10px;
+text-decoration: none;
+}
+.nav-seal {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+background: var(--gold);
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Cinzel', serif;
+font-size: 12px;
+font-weight: 600;
+color: var(--green-deep);
+letter-spacing: 1px;
+}
+.nav-title {
+font-family: 'Cinzel', serif;
+font-size: 13px;
+color: var(--gold);
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+.nav-links {
+display: flex;
+gap: 2rem;
+}
+.nav-links a {
+font-family: 'Cinzel', serif;
+font-size: 11px;
+color: var(--text-muted);
+text-decoration: none;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+transition: color .2s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+color: var(--gold);
+}
+.page-header {
+background: var(--green-rich);
+border-bottom: 3px solid var(--gold);
+padding: 4.5rem 2.5rem;
+text-align: center;
+}
+.page-eyebrow {
+font-family: 'Cinzel', serif;
+font-size: 11px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 1rem;
+}
+.page-header h1 {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-size: clamp(40px, 6vw, 64px);
+font-weight: 700;
+color: #ffffff;
+line-height: 1.1;
+margin-bottom: .75rem;
+}
+.page-header p {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-size: 20px;
+font-style: italic;
+color: var(--cream);
+}
+.header-rule {
+width: 64px;
+height: 3px;
+background: var(--gold);
+margin: 1.5rem auto 0;
+}
+.chronicles-section {
+max-width: 1000px;
+margin: 0 auto;
+padding: 4rem 2.5rem;
+}
+.chronicles-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1.5rem;
+}
+.chronicle-card {
+background: var(--green-mid);
+border: 0.5px solid var(--green-accent);
+padding: 1.75rem;
+transition: border-color .2s, background .2s;
+text-decoration: none;
+display: block;
+}
+.chronicle-card:hover {
+border-color: var(--gold);
+background: var(--green-rich);
+}
+.chronicle-vol {
+font-family: 'Cinzel', serif;
+font-size: 10px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: .4rem;
+}
+.chronicle-title {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-size: 21px;
+font-weight: 700;
+color: #ffffff;
+line-height: 1.3;
+margin-bottom: .5rem;
+}
+.chronicle-desc {
+font-size: 15px;
+color: var(--text-muted);
+line-height: 1.65;
+font-style: italic;
+}
+.chronicle-read {
+font-family: 'Cinzel', serif;
+font-size: 10px;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+color: var(--gold);
+display: flex;
+align-items: center;
+gap: 6px;
+margin-top: 1rem;
+}
+.chronicle-read svg {
+width: 12px;
+height: 12px;
+stroke: var(--gold);
+fill: none;
+stroke-width: 2.5;
+stroke-linecap: round;
+stroke-linejoin: round;
+}
+.back-link {
+display: inline-block;
+margin-top: 2.5rem;
+border: 1px solid var(--gold);
+color: var(--gold);
+font-family: 'Cinzel', serif;
+font-size: 11px;
+letter-spacing: 2px;
+text-transform: uppercase;
+padding: 11px 24px;
+text-decoration: none;
+transition: all .2s;
+}
+.back-link:hover {
+background: var(--gold);
+color: var(--green-deep);
+}
+footer {
+background: var(--green-deep);
+border-top: 3px solid var(--gold);
+padding: 1.5rem 2.5rem;
+text-align: center;
+}
+.footer-copy {
+font-family: 'Cinzel', serif;
+font-size: 11px;
+color: var(--green-accent);
+}
+@media (max-width: 680px) {
+nav {
+padding: 0 1.25rem;
+}
+.nav-links {
+  gap: 1rem;
+}
+
+.nav-links a {
+  font-size: 10px;
+}
+
+.page-header {
+  padding: 3.5rem 1.25rem;
+}
+
+.chronicles-section {
+  padding: 3rem 1.25rem;
+}
+
+footer {
+  padding: 1.5rem 1.25rem;
+}
+
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-seal">RC</div>
+    <span class="nav-title">The Remnant Chronicles</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">The Writings</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<header class="page-header">
+  <div class="page-eyebrow">The Writings</div>
+  <h1>The Second Watch</h1>
+  <p>The next collection of chronicles</p>
+  <div class="header-rule"></div>
+</header>
+<main class="chronicles-section">
+  <div class="chronicles-grid">
+    <a href="discerning-truth-in-a-confusing-world.html" class="chronicle-card">
+      <div class="chronicle-vol">Vol. XIX</div>
+      <div class="chronicle-title">Discerning Truth in a Confusing World</div>
+      <div class="chronicle-desc">The Discipline of Thinking for Yourself</div>
+      <div class="chronicle-read">Read the Op-Ed <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+  </div>
+<a href="index.html#chronicles" class="back-link">Back to Home</a>
+</main>
+<footer>
+  <div class="footer-copy">© The Remnant Chronicles · Jimey Grant</div>
+</footer>
+</body>
+</html>
