@@ -1,1 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responding to Conflict With Truth and Self-Control | The Remnant Chronicles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600&family=EB+Garamond:wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0f2219;
+    --green-dark: #152e21;
+    --green-mid: #1a3a2a;
+    --green-rich: #1e4432;
+    --green-accent: #2a5c40;
+    --gold: #C9941A;
+    --gold-light: #e0ac3a;
+    --gold-pale: #f0d080;
+    --cream: #f0ead8;
+    --cream-muted: #c8bfa8;
+    --text-body: #d8cdb8;
+    --text-muted: #8aaa90;
+  }
 
+{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+background: var(--green-deep);
+color: var(--text-body);
+font-family: 'EB Garamond', Georgia, serif;
+font-size: 19px;
+line-height: 1.85;
+}
+nav {
+background: var(--green-deep);
+border-bottom: 1px solid var(--gold);
+padding: 0 2.5rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 64px;
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.nav-logo {
+display: flex;
+align-items: center;
+gap: 10px;
+text-decoration: none;
+}
+.nav-seal {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+background: var(--gold);
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Cinzel', serif;
+font-size: 12px;
+font-weight: 600;
+color: var(--green-deep);
+letter-spacing: 1px;
+}
+.nav-title {
+font-family: 'Cinzel', serif;
+font-size: 13px;
+color: var(--gold);
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+.nav-links {
+display: flex;
+gap: 2rem;
+}
+.nav-links a {
+font-family: 'Cinzel', serif;
+font-size: 11px;
+color: var(--text-muted);
+text-decoration: none;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+transition: color .2s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+color: var(--gold);
+}
+.article-hero {
+background: var(--green-rich);
+border-bottom: 3px solid var(--gold);
+padding: 5rem 2.5rem 4rem;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+.article-hero::before {
+content: '';
+position: absolute;
+top: -100px;
+right: -100px;
+width: 400px;
+height: 400px;
+border-radius: 50%;
+background: var(--green-accent);
+opacity: .3;
+}
+.article-hero::after {
+content: '';
+position: absolute;
+bottom: -80px;
+left: -60px;
+width: 280px;
+height: 280px;
+border-radius: 50%;
+background: var(--green-accent);
+opacity: .2;
+}
+.article-label {
+font-family: 'Cinzel', serif;
+font-size: 11px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 1.25rem;
+position: relative;
+}
+.article-label span {
+display: inline-block;
+border: 1px solid var(--gold);
+padding: 4px 16px;
+}
+.article-hero h1 {
+font-family: Georgia, serif;
+font-size: clamp(28px, 4vw, 44px);
+font-weight: 600;
+color: #ffffff;
+line-height: 1.15;
+margin-bottom: .75rem;
+position: relative;
+}
+.article-hero h2 {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-size: clamp(16px, 2.5vw, 22px);
+font-style: italic;
+font-weight: 400;
+color: var(--gold-light);
+margin-bottom: 2rem;
+position: relative;
+}
+.hero-divider {
+width: 80px;
+height: 3px;
+background: var(--gold);
+margin: 0 auto 2rem;
+position: relative;
+}
+.article-meta {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 2rem;
+font-family: 'Cinzel', serif;
+font-size: 11px;
+letter-spacing: 1.5px;
+color: var(--text-muted);
+text-transform: uppercase;
+position: relative;
+flex-wrap: wrap;
+}
+.article-wrapper {
+max-width: 780px;
+margin: 0 auto;
+padding: 4rem 2rem 5rem;
+}
+.article-intro {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-size: 22px;
+font-style: italic;
+color: var(--cream-muted);
+line-height: 1.7;
+border-left: 3px solid var(--gold);
+padding-left: 1.5rem;
+margin-bottom: 3rem;
+}
+.article-intro::first-letter {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-size: 72px;
+font-weight: 700;
+font-style: normal;
+color: var(--gold);
+float: left;
+line-height: .8;
+margin: 8px 12px 0 0;
+}
+.article-body p {
+margin-bottom: 1.5rem;
+color: var(--text-body);
+}
+.article-nav {
+max-width: 780px;
+margin: 0 auto;
+padding: 0 2rem 3rem;
+}
+.back-link {
+display: inline-block;
+border: 1px solid var(--gold);
+color: var(--gold);
+font-family: 'Cinzel', serif;
+font-size: 11px;
+letter-spacing: 2px;
+text-transform: uppercase;
+padding: 11px 24px;
+text-decoration: none;
+transition: all .2s;
+}
+.back-link:hover {
+background: var(--gold);
+color: var(--green-deep);
+}
+footer {
+background: var(--green-deep);
+border-top: 3px solid var(--gold);
+padding: 1.5rem 2.5rem;
+text-align: center;
+}
+.footer-copy {
+font-family: 'Cinzel', serif;
+font-size: 11px;
+color: var(--green-accent);
+}
+@media (max-width: 680px) {
+nav {
+padding: 0 1.25rem;
+}
+.nav-links {
+gap: 1rem;
+}
+.nav-links a {
+font-size: 10px;
+}
+.article-hero {
+padding: 3.5rem 1.25rem 3rem;
+}
+.article-meta {
+gap: .75rem 1.25rem;
+font-size: 10px;
+}
+.article-wrapper {
+padding: 2.5rem 1.25rem 3.5rem;
+}
+.article-intro {
+font-size: 20px;
+padding-left: 1rem;
+}
+.article-nav {
+padding: 0 1.25rem 2.5rem;
+}
+footer {
+padding: 1.5rem 1.25rem;
+}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-seal">RC</div>
+    <span class="nav-title">The Remnant Chronicles</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">The Writings</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<header class="article-hero">
+  <div class="article-label">
+    <span>The Remnant Chronicles &nbsp;·&nbsp; Vol. XXVI</span>
+  </div>
+  <h1>Responding to Conflict With Truth and Self-Control</h1>
+  <h2>Meeting Conflict with Clarity, Grace, and Discipline</h2>
+  <div class="hero-divider"></div>
+  <div class="article-meta">
+    <span>By Jimey Grant</span>
+    <span>Lafayette, Louisiana</span>
+    <span>Second Watch</span>
+  </div>
+</header>
+<main class="article-wrapper">
+  <p class="article-intro">As Christians, how should we respond when someone insults us, or a disagreement threatens to become a conflict? Proverbs 17:14 (NIV) compares starting a quarrel to breaching a dam and advises us to drop the matter before a dispute breaks out. Sometimes the wisest response is to agree to disagree and walk away.</p>
+  <div class="article-body">
+    <p>In heated moments, careless words can spill out and affect us not only in the present, but also in the future. That is why Scripture calls us to be “quick to listen, slow to speak” (James 1:19). When emotions rise, confusion and deception can cloud our judgment. If we are not careful, our feelings can overwhelm reason and lead us to mistake an emotional reaction for sound judgment.</p>
+<p>In that moment of anger and impulsivity, the consequences can be serious. Careers can be damaged, money can be lost, and pride can be wounded. As believers, we are called to live with sound minds and to cultivate the fruit of the Spirit, including self-control. Self-control is more than managing our emotions; it is also the ability to step back, consider what may happen next, and choose wisely.</p>
+
+<p>Before allowing a disagreement to escalate, ask yourself: What could happen if this continues? How might this argument affect my finances, my family, my children, or my freedom? Could I put my career at risk by refusing to walk away? These questions require us to set pride aside and look beyond the satisfaction of winning an argument.</p>
+
+<p>We live in a time when taking the high road can be mistaken for cowardice. But walking away from a needless conflict is not weakness. It is a wise choice that protects what we have worked and sacrificed to build. When we trade foresight for the temporary thrill of an emotional victory, we put years—even decades—of effort at risk.</p>
+
+<p>Following Christ requires more than reading the Bible or attending church. We must also put its teachings into practice, including the call to turn the other cheek (Matthew 5:39). Proverbs 25:28 compares a person without self-control to a city broken into and left without walls. Without self-control, one insult can provoke us into anger and defensiveness.</p>
+
+<p>Choosing restraint does not mean pretending that hurtful words do not matter or allowing others to mistreat us. It means deciding not to let another person’s behavior control our response. We can speak honestly and set appropriate boundaries without returning insult for insult. At times, that may mean calmly explaining our position; at other times, it may mean ending the conversation and seeking help from someone wise and trustworthy.</p>
+
+<p>Jesus modeled strength through humility and restraint. He did not answer every accusation with anger, nor did He make every disagreement a contest to be won. His example reminds us that our identity is not determined by whether others approve of us or whether we get the last word. We can entrust our dignity to God and choose a response that reflects our faith.</p>
+
+<p>Before responding, pause and pray for wisdom. Take a breath, listen carefully, and consider whether your words will bring peace or deepen the division. Ask God to help you see the situation clearly and to guard your heart against bitterness. A calm response may not immediately change the other person, but it can prevent a tense moment from becoming a lasting wound.</p>
+
+<p>We cannot control every insult, disagreement, or accusation, but we can choose how we respond. By listening before speaking, practicing self-control, and refusing to escalate needless disputes, we protect our relationships and honor God. Walking away is not surrendering our faith or our dignity; sometimes, it is the clearest evidence that we are letting wisdom—not anger—lead us.</p>
+
+  </div>
+</main>
+<div class="article-nav">
+  <a href="the-second-watch.html" class="back-link">Back to The Second Watch</a>
+</div>
+<footer>
+  <div class="footer-copy">© The Remnant Chronicles · Jimey Grant</div>
+</footer>
+</body>
+</html>
