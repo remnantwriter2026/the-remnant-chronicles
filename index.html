@@ -19,7 +19,7 @@
     --text-body: #d8cdb8;
     --text-muted: #8aaa90;
   }
-{
+* {
 box-sizing: border-box;
 margin: 0;
 padding: 0;
@@ -90,7 +90,7 @@ color: var(--gold);
 .hero {
 background: var(--green-rich);
 border-bottom: 3px solid var(--gold);
-padding: 6rem 2.5rem 5rem;
+padding: 3rem 2.5rem 2rem;
 text-align: center;
 position: relative;
 overflow: hidden;
@@ -151,7 +151,7 @@ font-size: clamp(16px, 2.5vw, 22px);
 font-style: italic;
 color: var(--cream-muted);
 max-width: 540px;
-margin: 0 auto 2.5rem;
+margin: 0 auto 1.5rem;
 position: relative;
 line-height: 1.6;
 }
@@ -159,7 +159,7 @@ line-height: 1.6;
 width: 80px;
 height: 3px;
 background: var(--gold);
-margin: 0 auto 2.5rem;
+margin: 0 auto 1.5rem;
 position: relative;
 }
 .hero-actions {
@@ -225,7 +225,7 @@ content: '·';
 margin-left: 2rem;
 opacity: .5;
 }
-keyframes marquee {
+@keyframes marquee {
 from {
 transform: translateX(0);
 }
@@ -244,7 +244,7 @@ gap: 1rem;
 font-size: 10px;
 }
 .hero {
-padding: 4rem 1.25rem 3.5rem;
+padding: 2.5rem 1.25rem 1.75rem;
 }
 }
 </style>
