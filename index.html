@@ -24,7 +24,14 @@ box-sizing: border-box;
 margin: 0;
 padding: 0;
 }
+html,
 body {
+min-height: 100%;
+}
+body {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
 background: var(--green-deep);
 color: var(--text-body);
 font-family: 'EB Garamond', Georgia, serif;
@@ -39,8 +46,8 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 height: 64px;
-position: sticky;
-top: 0;
+flex: 0 0 64px;
+position: relative;
 z-index: 100;
 }
 .nav-logo {
@@ -94,6 +101,10 @@ padding: 3rem 2.5rem 2rem;
 text-align: center;
 position: relative;
 overflow: hidden;
+flex: 1 0 auto;
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
 .hero::before {
 content: '';
@@ -207,6 +218,7 @@ background: var(--gold);
 padding: 10px 0;
 overflow: hidden;
 white-space: nowrap;
+flex: 0 0 auto;
 }
 .marquee-inner {
 display: flex;
@@ -217,7 +229,7 @@ animation: marquee 30s linear infinite;
 display: flex;
 flex-shrink: 0;
 }
-.marquee-inner span {
+.marquee-group span {
 font-family: 'Cinzel', serif;
 font-size: 11px;
 letter-spacing: 2px;
@@ -225,7 +237,7 @@ text-transform: uppercase;
 color: var(--green-deep);
 padding: 0 2rem;
 }
-.marquee-inner span::after {
+.marquee-group span::after {
 content: '·';
 margin-left: 2rem;
 opacity: .5;
