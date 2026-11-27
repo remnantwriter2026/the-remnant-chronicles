@@ -209,8 +209,13 @@ overflow: hidden;
 white-space: nowrap;
 }
 .marquee-inner {
-display: inline-block;
+display: flex;
+width: max-content;
 animation: marquee 30s linear infinite;
+}
+.marquee-group {
+display: flex;
+flex-shrink: 0;
 }
 .marquee-inner span {
 font-family: 'Cinzel', serif;
@@ -279,20 +284,24 @@ padding: 2.5rem 1.25rem 1.75rem;
 </header>
 <div class="marquee-strip">
   <div class="marquee-inner">
-    <span>Spiritual Discernment</span>
-    <span>Doctrinal Analysis</span>
-    <span>Prophetic Writing</span>
-    <span>Community Restoration</span>
-    <span>Scriptural Precision</span>
-    <span>Strategic Deep-Dives</span>
-    <span>The Remnant Chronicles</span>
-    <span>Spiritual Discernment</span>
-    <span>Doctrinal Analysis</span>
-    <span>Prophetic Writing</span>
-    <span>Community Restoration</span>
-    <span>Scriptural Precision</span>
-    <span>Strategic Deep-Dives</span>
-    <span>The Remnant Chronicles</span>
+    <div class="marquee-group">
+      <span>Spiritual Discernment</span>
+      <span>Doctrinal Analysis</span>
+      <span>Prophetic Writing</span>
+      <span>Community Restoration</span>
+      <span>Scriptural Precision</span>
+      <span>Strategic Deep-Dives</span>
+      <span>The Remnant Chronicles</span>
+    </div>
+    <div class="marquee-group" aria-hidden="true">
+      <span>Spiritual Discernment</span>
+      <span>Doctrinal Analysis</span>
+      <span>Prophetic Writing</span>
+      <span>Community Restoration</span>
+      <span>Scriptural Precision</span>
+      <span>Strategic Deep-Dives</span>
+      <span>The Remnant Chronicles</span>
+    </div>
   </div>
 </div>
 </body>
